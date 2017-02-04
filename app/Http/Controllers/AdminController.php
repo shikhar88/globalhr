@@ -30,6 +30,6 @@ class AdminController extends Controller
 
 
     public function dashboard(){
-        return view('admin.template');
+        return view('admin.test');
     }
 }

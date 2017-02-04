@@ -20,4 +20,5 @@ Route::post('/admin','AdminController@authenticate');
 Route::get('/logout', function(){Auth::logout();return redirect('/admin')->with('success','Logged out Succesfully');});
 Route::group(['middleware'=>['auth']], function(){
     Route::get('/admin/dashboard','AdminController@dashboard');
+    Route::get('/admin/maps','AdminController@dashboard');
 });
