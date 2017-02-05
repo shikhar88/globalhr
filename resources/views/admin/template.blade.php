@@ -176,6 +176,12 @@
                     <li>
                         <a href="charts.html"><i class="fa fa-bar-chart-o"></i> <span class="title">Charts</span> </a>
                     </li>
+                    <li>
+                        <a href="/admin/banner"><i class="fa fa-bar-chart-o"></i> <span class="title">Banner setting</span> </a>
+                    </li>
+                    <li>
+                        <a href="/admin/aboutus"><i class="fa fa-bar-chart-o"></i> <span class="title">About us</span> </a>
+                    </li>
                 </ul>
                 <!-- end: MAIN NAVIGATION MENU -->
             </div>
@@ -258,12 +264,31 @@
 <!-- start: CORE JAVASCRIPTS  -->
 <script src="../assets/js/main.js"></script>
 <!-- end: CORE JAVASCRIPTS  -->
+
+@yield('javascript')
 <script>
     jQuery(document).ready(function() {
         Main.init();
         SVExamples.init();
         Index.init();
     });
+    function showToast(type,msg){
+        toastr.options = {
+            "closeButton": false,
+            "positionClass": "toast-bottom-full-width",
+            "onclick": null,
+            "showDuration": "1000",
+            "hideDuration": "1000",
+            "timeOut": "10000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        };
+        toastr[type](msg);
+
+    }
 </script>
 </body>
 <!-- end: BODY -->

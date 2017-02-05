@@ -7,6 +7,7 @@
  */
 
 namespace App\Http\Controllers;
+use App\Content;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Auth;
 
@@ -22,14 +23,33 @@ class AdminController extends Controller
         $password = Input::get('password');
         if (Auth::attempt(['username' => $username, 'password' => $password])) {
             // Authentication passed...
-            return redirect()->intended('admin/dashboard');
+            return redirect()->intended('admin');
         }
-        else return redirect('/admin')->with('error','Invalid Login details.');
+        else return redirect('/login')->with('error','Invalid Login details.');
 
     }
 
 
     public function dashboard(){
-        return view('admin.test');
+        return view('admin.template');
     }
+
+    public function content(){
+            if(Input::get('save',null)=='1'){
+                $content = Input::get('content');
+                Content::where('type','aboutus')
+                    ->update(['value'=>$content])
+                ;
+            }
+            else{
+                $aboutus = Content::where('type','aboutus')->get();
+                return view('admin.aboutus')->with('aboutus',$aboutus[0]->value);
+            }
+    }
+
+    public function banner() {
+
+    }
+
+
 }

@@ -11,14 +11,14 @@
 |
 */
 
-Route::get('/', function () {
-    return view('homepage');
-});
+Route::get('/','HomeController@home');
 
-Route::get('/admin','AdminController@admin');
-Route::post('/admin','AdminController@authenticate');
-Route::get('/logout', function(){Auth::logout();return redirect('/admin')->with('success','Logged out Succesfully');});
+Route::get('/login','AdminController@admin');
+Route::post('/login','AdminController@authenticate');
+Route::get('/logout', function(){Auth::logout();return redirect('/login')->with('success','Logged out Succesfully');});
 Route::group(['middleware'=>['auth']], function(){
-    Route::get('/admin/dashboard','AdminController@dashboard');
+    Route::get('/admin','AdminController@dashboard');
     Route::get('/admin/maps','AdminController@dashboard');
+    Route::get('/admin/aboutus','AdminController@content');
+    Route::get('/admin/banner','AdminController@banner');
 });

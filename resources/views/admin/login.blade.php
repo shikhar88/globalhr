@@ -46,7 +46,7 @@
             <p>
                 Please enter your name and password to log in.
             </p>
-            <form class="form-login" action="/admin" method="post">
+            <form class="form-login" action="/login" method="post">
                 <input name="_token" type="hidden" value="{{ csrf_token() }}"/>
                 <div class="alert alert-danger {{(Session::has('error'))?'':'no-display'}}">
                     <i class="fa fa-remove-sign"></i> {{Session::get('error')}}</div>
