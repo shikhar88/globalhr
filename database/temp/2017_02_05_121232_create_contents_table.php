@@ -13,8 +13,11 @@ class CreateContentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('contents', function (Blueprint $table) {
+        Schema::create('content', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('type',100)->nullable();
+            $table->longText('value')->nullable();
+            $table->rememberToken();
             $table->timestamps();
         });
     }
@@ -26,6 +29,6 @@ class CreateContentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('contents');
+        Schema::dropIfExists('content');
     }
 }
