@@ -8,6 +8,7 @@
 
 namespace App\Http\Controllers;
 use App\Content;
+use App\Images;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Auth;
 
@@ -48,7 +49,41 @@ class AdminController extends Controller
     }
 
     public function banner() {
-        return view('admin.banner');
+        if(Input::get('crud',null)=='1'){
+            if(Input::get('action')=='delete')
+            {
+                $id = Input::get('id');
+                Images::destroy($id);
+            }
+            elseif(Input::get('action')=='update'){
+                $id = Input::get('id');
+                $active = Input::get('active');
+                Images::where('id',$id)
+                    ->update(['active'=>$active]);
+            }
+        }
+        else{
+            $banner = Images::where('type','banner')->get();
+            return view('admin.banner')->with('banner',$banner);
+        }
+    }
+
+    public function bannersave(){
+        $data=Input::all();
+        if(isset($data['image'])){
+            $extension=$data['image']->guessExtension();
+            $filename=str_random(80).'.'.$extension;
+            if($data['image']->move(public_path().'/uploads/banner_images/',$filename))
+            {
+                $img = new Images();
+                $img->type = 'banner';
+                $img->path ='/uploads/banner_images/'.$filename;
+                $img->active = '1';
+                $img->save();
+            }
+        }
+        $banner = Images::where('type','banner')->get();
+        return view('admin.banner')->with('banner',$banner);
     }
 
 

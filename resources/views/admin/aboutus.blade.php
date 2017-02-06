@@ -99,7 +99,7 @@
                     showToast('success','Content has been saved');
                 },
                 error:function () {
-                    showToast('success','Error while saving content. Try again.');
+                    showToast('error','Error while saving content. Try again.');
                 }
             });
         }

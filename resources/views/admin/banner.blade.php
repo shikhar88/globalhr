@@ -7,7 +7,9 @@
             <div class="toolbar row">
                 <div class="col-sm-6 hidden-xs">
                     <div class="page-header">
-                        <h1>Dashboard <small>overview &amp; stats </small></h1>
+                        <h1>Dashboard
+                            <small>overview &amp; stats</small>
+                        </h1>
                     </div>
                 </div>
                 <div class="col-sm-6 col-xs-12">
@@ -16,7 +18,7 @@
                         <ul class="nav navbar-right">
                             <!-- start: TO-DO DROPDOWN -->
                             <li class="menu-search">
-                                <a href="" onclick="saveContent();">
+                                <a href="" onclick="saveBanner();">
                                     <i class="fa fa-floppy-o 2x"></i> SAVE
                                 </a>
                             </li>
@@ -45,31 +47,71 @@
             <!-- end: BREADCRUMB -->
             <!-- start: PAGE CONTENT -->
             <div class="row">
-                <form class="form-horizontal" action="#">
-                    <div class="form-group">
-                    <div class="col-sm-12">
-                        <label>
-                            Image Upload
-                        </label>
-                        <div class="fileupload fileupload-new" data-provides="fileupload">
-                            <div class="fileupload-new thumbnail"><img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA?text=no+image" alt=""/>
-                            </div>
-                            <div class="fileupload-preview fileupload-exists thumbnail"></div>
-                            <div>
-															<span class="btn btn-light-grey btn-file"><span class="fileupload-new"><i class="fa fa-picture-o"></i> Select image</span><span class="fileupload-exists"><i class="fa fa-picture-o"></i> Change</span>
-																<input type="file">
-															</span>
-                                <a href="#" class="btn fileupload-exists btn-light-grey" data-dismiss="fileupload">
-                                    <i class="fa fa-times"></i> Remove
+
+                <ul id="Grid" class="list-unstyled">
+                    @foreach($banner as $ban)
+                        <li class="col-md-4 col-sm-6 col-xs-12 category_1 gallery-img" data-cat="1" id="banner{{$ban->id}}"}>
+                            <div class="portfolio-item">
+                                <a class="thumb-info" href="{{$ban->path}}" data-lightbox="gallery"
+                                   data-title="Website">
+                                    <img src="{{$ban->path}}" class="img-responsive" alt="">
+                                    <span class="thumb-info-title"> Website </span>
                                 </a>
+                                <div class="tools tools-bottom">
+                                    <a style="cursor: pointer;">
+                                        <i class="fa fa-link"></i>
+                                    </a>
+
+                                    @if($ban->active == '1')
+                                        <a style="cursor: pointer;" onclick="changeStatus('{{$ban->id}}',this);" data-active="0">
+                                            <i class="fa fa-eye" id="bannerstatus{{$ban->id}}"></i>
+                                        </a>
+                                    @else
+                                        <a style="cursor: pointer;" onclick="changeStatus('{{$ban->id}}',this);" data-active="1">
+                                            <i class="fa fa-eye-slash" id="bannerstatus{{$ban->id}}"></i>
+                                        </a>
+                                    @endif
+                                    <a style="cursor: pointer;" onclick="removebanner('{{$ban->id}}');">
+                                        <i class="fa fa-trash-o" ></i>
+                                    </a>
+                                </div>
                             </div>
-                        </div>
-                        <div class="alert alert-warning">
-                            <span class="label label-warning">NOTE!</span>
-                            <span> Image preview only works in IE10+, FF3.6+, Chrome6.0+ and Opera11.1+. In older browsers and Safari, the filename is shown instead. </span>
+                        </li>
+                @endforeach
+                <!-- "gap" elements fill in the gaps in justified grid -->
+                </ul>
+                <form class="form-horizontal" enctype="multipart/form-data" id="bannerimageform" method="post"
+                      action="/admin/banner">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <label>
+                                Image Upload
+                            </label>
+                            <div class="fileupload fileupload-new" data-provides="fileupload">
+                                <div class="fileupload-new thumbnail"><img
+                                            src="http://www.placehold.it/200x150/EFEFEF/AAAAAA?text=no+image" alt=""/>
+                                </div>
+                                <div class="fileupload-preview fileupload-exists thumbnail"></div>
+                                <div>
+                                    <span class="fileupload-exists btn btn-light-grey btn-file" onclick="saveBanner();"><i
+                                                class="fa fa-picture-o"></i> Add banner</span></span>
+                                    <span class="btn btn-light-grey btn-file">
+                                                                <span
+                                                                        class="fileupload-new"><i
+                                                                            class="fa fa-picture-o"></i> Select image</span>
+                                                                <span
+                                                                        class="fileupload-exists"><i
+                                                                            class="fa fa-picture-o"></i> Change</span>
+																<input type="file" name="image" id="testssadf">
+															</span>
+                                    <a href="#" class="btn fileupload-exists btn-light-grey" data-dismiss="fileupload">
+                                        <i class="fa fa-times"></i> Remove
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
                 </form>
             </div>
 
@@ -82,5 +124,67 @@
 @endsection
 
 @section('javascript')
+    <script type="text/javascript">
+        function saveBanner() {
+            $("#bannerimageform").submit();
+        }
 
+        function removebanner(bid) {
+            $.ajax({
+                url: '/admin/banner',
+                data: {'id': bid, 'action': 'delete', 'crud': '1'},
+                method: 'get',
+                success: function () {
+                    $("#banner"+bid).html('');
+                    showToast('success', 'Image has been successfully deleted');
+                },
+                error: function () {
+                    showToast('error', 'Error deleting image.Try again');
+                }
+            });
+        }
+
+        function changeStatus(bid,current) {
+            var active = $(current).data('active');
+            $.ajax({
+                url: '/admin/banner',
+                data: {'id': bid, 'action': 'update', 'crud': '1','active':active},
+                method: 'get',
+                success: function () {
+                    if(active == '1'){
+                        $("#bannerstatus"+bid).removeClass('fa-eye-slash');
+                        $("#bannerstatus"+bid).addClass('fa-eye');
+                        $(current).data('active','0');
+                    }
+                    else if(active == '0'){
+                        $("#bannerstatus"+bid).removeClass('fa-eye');
+                        $("#bannerstatus"+bid).addClass('fa-eye-slash');
+                        $(current).data('active','1');
+                    }
+                    showToast('success', 'Action has been successfully completed');
+                },
+                error: function () {
+                    showToast('error', 'Error performing action. Try again.');
+                }
+            });
+        }
+        // function saveBanner(){
+        //            var data = $("#bannerimageform").serialize();
+        //            var filename = $('input[type=file]').val().replace(/C:\\fakepath\\/i, '')
+        //            $.ajax({
+        //                url:"/admin/banne?savebanner=1&image="+filename,
+        //                data:data,
+        //                method:'get',
+        //                cache:false,
+        //                contentType: false,
+        //                processData: false,
+        //                success:function () {
+        //                    showToast('success','Content has been saved');
+        //                },
+        //                error:function () {
+        //                    showToast('error','Error while saving content. Try again.');
+        //                }
+        //            });
+        //        }
+    </script>
 @endsection

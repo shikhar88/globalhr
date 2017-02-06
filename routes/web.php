@@ -21,4 +21,5 @@ Route::group(['middleware'=>['auth']], function(){
     Route::get('/admin/maps','AdminController@dashboard');
     Route::get('/admin/aboutus','AdminController@content');
     Route::get('/admin/banner','AdminController@banner');
+    Route::post('/admin/banner','AdminController@bannersave');
 });
