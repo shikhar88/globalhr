@@ -123,49 +123,12 @@
                         <ul class="sub-menu">
                             <li>
                                 <a href="javascript:;">
-                                    Horizontal Menu <i class="icon-arrow"></i>
+                                    <span class="title"> Upload images </span>
                                 </a>
-                                <ul class="sub-menu">
-                                    <li>
-                                        <a href="layouts_horizontal_menu.html">
-                                            Horizontal Menu
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="layouts_horizontal_menu_fixed.html">
-                                            Horizontal Menu Fixed
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="layouts_horizontal_sidebar_menu.html">
-                                            Horizontal &amp; Sidebar Menu
-                                        </a>
-                                    </li>
-                                </ul>
                             </li>
                             <li>
                                 <a href="layouts_sidebar_closed.html">
                                     <span class="title"> Sidebar Closed </span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="layouts_sidebar_not_fixed.html">
-                                    <span class="title"> Sidebar Not Fixed </span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="layouts_boxed_layout.html">
-                                    <span class="title"> Boxed Layout </span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="layouts_footer_fixed.html">
-                                    <span class="title"> Footer Fixed </span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="layouts_single_page.html">
-                                    <span class="title"> Single-Page Interface </span>
                                 </a>
                             </li>
                         </ul>

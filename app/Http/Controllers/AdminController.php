@@ -48,7 +48,7 @@ class AdminController extends Controller
     }
 
     public function banner() {
-
+        return view('admin.banner');
     }
 
 
