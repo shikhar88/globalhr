@@ -53,6 +53,13 @@ class AdminController extends Controller
             if(Input::get('action')=='delete')
             {
                 $id = Input::get('id');
+                $img = Images::find($id);
+                try{
+                    unlink(public_path().$img->path);
+                }
+                catch(\ErrorException $e){
+
+                }
                 Images::destroy($id);
             }
             elseif(Input::get('action')=='update'){

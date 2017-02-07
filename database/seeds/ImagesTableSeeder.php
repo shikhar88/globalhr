@@ -11,7 +11,7 @@ class ImagesTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('services')->insert([
+        DB::table('images')->insert([
             ['type' => 'banner',
                 'path' => '/uploads/banner_images/DyzoTku4vZsaUPWkCKdzGE7JixzlunPil2wxKxAkvBn3jlhoMkMEoRECLplqji56jXP4W8o5L82DyP1j.png',
                 'active'=>'1'
