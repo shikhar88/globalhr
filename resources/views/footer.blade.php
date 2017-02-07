@@ -27,18 +27,18 @@
 
         <div>
             <i class="fa fa-map-marker"></i>
-            <p><span>Putalisadak, Kathmandu, Nepal</span></p>
+            <p><span>{{$comapnydetail->location}}</span></p>
         </div>
 
         <div>
             <i class="fa fa-phone"></i>
-            <p>+977-1-4233140 / 4239302</p>
+            <p>{{$comapnydetail->contact}}</p>
         </div>
 
         <div>
             <i class="fa fa-envelope"></i>
-            <p><a href="#">info@globalhr.edu.np</a> </p>
-            <p style="margin-left: 17%">  <a href="#"> enquiry.globaledu@gmail.com</a></p>
+            <p><a >{{$comapnydetail->email1}}</a> </p>
+            <p style="margin-left: 17%">  <a >{{$comapnydetail->email2}}</a></p>
         </div>
 
     </div>
@@ -54,10 +54,10 @@
 
         <div class="footer-icons">
 
-            <a href="#"><i class="fa fa-facebook"></i></a>
-            <a href="#"><i class="fa fa-twitter"></i></a>
-            <a href="#"><i class="fa fa-google-plus"></i></a>
-            <a href="#"><i class="fa fa-home"></i></a>
+            <a href="http://{{$comapnydetail->fb}}" target="_blank"><i class="fa fa-facebook"></i></a>
+            <a href="http://{{$comapnydetail->twitter}}" target="_blank"><i class="fa fa-twitter"></i></a>
+            <a href="http://{{$comapnydetail->googleplus}}" target="_blank"><i class="fa fa-google-plus"></i></a>
+            {{--<a href="#"><i class="fa fa-home"></i></a>--}}
 
         </div>
 

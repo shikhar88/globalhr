@@ -14,9 +14,12 @@ class HomeController extends Controller
        if($banner){
            $banner[0]->class ='active';
        }
+       $companydet = Content::where('type','footer')->get()->first();
+       $companydetails = json_decode($companydet->value);
        return view('homepage')
            ->with('aboutus',$aboutus[0]->value)
            ->with('banner',$banner)
+           ->with('comapnydetail',$companydetails)
            ;
    }
 }

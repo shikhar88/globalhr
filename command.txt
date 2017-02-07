@@ -2,3 +2,14 @@ composer dump-autoload
 composer update
 set env file for database
 php artisan key:generate  APP_KEY=YOUR_GENERATED_KEY (if not set)
+
+
+
+
+
+
+
+Extra Command
+php artisan make:migration create_companydetail_table
+php artisan make:seeder UsersTableSeeder
+php artisan db:seed --class=UsersTableSeeder

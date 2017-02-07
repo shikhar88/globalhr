@@ -134,7 +134,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="maps"><i class="fa fa-map-marker"></i> <span class="title">Maps</span> </a>
+                        <a href="/admin/companydetail"><i class="fa fa-bar-chart-o"></i> <span class="title">Contact and Social links</span> </a>
                     </li>
                     <li>
                         <a href="charts.html"><i class="fa fa-bar-chart-o"></i> <span class="title">Charts</span> </a>

@@ -94,4 +94,23 @@ class AdminController extends Controller
     }
 
 
+    public function companydetail(){
+        if(Input::get('saveContact',null)=='1'){
+            $data = $_GET;
+            unset($data['saveContact']);
+            $jsondata = json_encode($data);
+            Content::where('type','footer')
+                ->update(['value'=>$jsondata]);
+                    ;
+            dd($data);
+        }
+        else{
+            $data = Content::where('type','footer')->get()->first();
+            $rec = json_decode($data->value);
+            return view('admin.companydetail')->with('data',$rec);
+        }
+
+    }
+
+
 }
