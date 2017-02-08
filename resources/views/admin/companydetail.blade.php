@@ -102,7 +102,14 @@
                                     <div class="col-sm-4">
                                     </div>
                                 </div>
-
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">
+                                        About the company
+                                    </label>
+                                    <div class="col-sm-6">
+                                        <textarea maxlength="320" class="autosize form-control limited" id="form-field-24" name="aboutcompany">{{$data->aboutcompany}}</textarea>
+                                    </div>
+                                </div>
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label">
                                        Facebook

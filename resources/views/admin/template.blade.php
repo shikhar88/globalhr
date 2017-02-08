@@ -134,7 +134,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="/admin/companydetail"><i class="fa fa-bar-chart-o"></i> <span class="title">Contact and Social links</span> </a>
+                        <a href="/admin/companydetail"><i class="fa fa-bar-chart-o"></i> <span class="title">Company detail</span> </a>
                     </li>
                     <li>
                         <a href="charts.html"><i class="fa fa-bar-chart-o"></i> <span class="title">Charts</span> </a>
