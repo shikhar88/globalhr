@@ -13,3 +13,15 @@ Extra Command
 php artisan make:migration create_companydetail_table
 php artisan make:seeder UsersTableSeeder
 php artisan db:seed --class=UsersTableSeeder
+
+
+Pashuram
+composer dump-autoload
+composer update
+set env file for database
+php artisan key:generate  APP_KEY=YOUR_GENERATED_KEY (if not set in .env file)
+php artisan migrate
+php artisan db:seed --class=UsersTableSeeder
+php artisan db:seed --class=ContentTableSeeder
+php artisan db:seed --class=ImagesTableSeeder
+

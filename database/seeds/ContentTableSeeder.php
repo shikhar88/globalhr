@@ -22,7 +22,15 @@ class ContentTableSeeder extends Seeder
                     <p style="text-align: justify;">Our goal is to understand the basic requirements of the students and help them to choose the right course and the university / college accordingly. We would like to be a perfect link between the Universities / Colleges and the aspiring students who would like to study in a foreign land. Our knowledge, professional behavior, commitment, infrastructure and a highly experienced team at Global Education shall be helpful in achieving our goal of student satisfaction.</p>
                     <p style="text-align: justify;">Global Education is recognized by ICEF, NZ Government, Ministry of Education Nepal and ECAN by awarding membership for its quality and professional services,</p>
                     <p style="text-align: justify;">Global Education is an official representative for number of Universities and colleges in United States of America, Australia, New Zealand, United Kingdom, Germany, and Canada.</p>',
+            ],
+            [
+                'type'=>'footer',
+                'value'=>'{"location":"Putalisadak, Kathmandu, Nepal","contact":"+977-1-4233140 \/ 4239302","email1":"info@globalhr.edu.np","email2":"enquiry.globaledu@gmail.com","aboutcompany":"Study In USA United States of America commonly known as USA is a country having migrants to try their luck from more than 150 countries! Study In Australia Australia has the third highest number of international students in the world behind only the United Kingdom. Study In New Zealand Every new day in the world","fb":"fb.com","twitter":"twitter.com","googleplus":"gmail.com"}'
             ]
         ]);
+    }
+
+    public function down(){
+
     }
 }
