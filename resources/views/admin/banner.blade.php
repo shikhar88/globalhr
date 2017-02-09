@@ -170,23 +170,6 @@
                 }
             });
         }
-        // function saveBanner(){
-        //            var data = $("#bannerimageform").serialize();
-        //            var filename = $('input[type=file]').val().replace(/C:\\fakepath\\/i, '')
-        //            $.ajax({
-        //                url:"/admin/banne?savebanner=1&image="+filename,
-        //                data:data,
-        //                method:'get',
-        //                cache:false,
-        //                contentType: false,
-        //                processData: false,
-        //                success:function () {
-        //                    showToast('success','Content has been saved');
-        //                },
-        //                error:function () {
-        //                    showToast('error','Error while saving content. Try again.');
-        //                }
-        //            });
-        //        }
+
     </script>
 @endsection

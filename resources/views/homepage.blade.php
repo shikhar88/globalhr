@@ -245,46 +245,54 @@
                                 <div class="col-lg-6">
                                     <div class="container_my">
                                         <div class="img">
+                                            <a onclick="study('study/usa')" style="cursor: pointer;">
                                             <img src="assets/images/Usa.png" alt="Avatar" class="image" style="width:100%">
                                             <div class="middle">
                                                 <div style="padding: 1%"> United States of America commonly known as USA is a country having migrants to try their luck from more than 150 countries!</div>
                                             </div>
                                             <div class="desc" style="padding-left: 14%;text-align: left">Study In United State
                                             </div>
+                                            </a>
                                         </div>
                                     </div>
                                     <div style="margin-top: 15%"></div>
                                     <div class="container_my">
                                         <div class="img">
+                                            <a onclick="study('study/australia')" style="cursor: pointer;">
                                             <img src="assets/images/Australia.png" alt="Avatar" class="image" style="width:100%">
                                             <div class="middle">
                                                 <div style="padding: 1%"> Australia has the third highest number of international students in the world behind only the United Kingdom.</div>
                                             </div>
                                             <div class="desc" style="padding-left: 14%;text-align: left">Study In Australia
                                             </div>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="container_my">
                                         <div class="img">
+                                            <a onclick="study('study/newzealand')" style="cursor: pointer;">
                                             <img src="assets/images/new_zealand.png" alt="Avatar" class="image" style="width:100%">
                                             <div class="middle">
                                                 <div style="padding: 1%">  Every new day in the world starts in New Zealand. Nepali students choose NZ as their preferred destination to study.</div>
                                             </div>
                                             <div class="desc" style="padding-left: 14%;text-align: left">Study In New Zealand
                                             </div>
+                                            </a>
                                         </div>
                                     </div>
                                     <div style="margin-top: 15%"></div>
                                     <div class="container_my">
                                         <div class="img">
+                                            <a onclick="study('study/europe')" style="cursor: pointer;">
                                             <img src="assets/images/no_image.jpg" alt="Avatar" class="image" style="width:100%">
                                             <div class="middle">
                                                 <div style="padding: 1%"> No text</div>
                                             </div>
                                             <div class="desc" style="padding-left: 14%;text-align: left">Study In Europe
                                             </div>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
