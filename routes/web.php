@@ -12,9 +12,11 @@
 */
 
 Route::get('/','HomeController@home');
+Route::get('/index','HomeController@homeajax');
 
 Route::get('/login','AdminController@admin');
 Route::post('/login','AdminController@authenticate');
+Route::get('study/{country}','HomeController@abroad');
 Route::get('/logout', function(){Auth::logout();return redirect('/login')->with('success','Logged out Succesfully');});
 Route::group(['middleware'=>['auth']], function(){
     Route::get('/admin','AdminController@dashboard');
