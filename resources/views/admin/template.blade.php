@@ -145,6 +145,9 @@
                     <li>
                         <a href="/admin/aboutus"><i class="fa fa-bar-chart-o"></i> <span class="title">About us</span> </a>
                     </li>
+                    <li>
+                        <a href="/admin/study"><i class="fa fa-bar-chart-o"></i> <span class="title">Study abroad</span> </a>
+                    </li>
                 </ul>
                 <!-- end: MAIN NAVIGATION MENU -->
             </div>

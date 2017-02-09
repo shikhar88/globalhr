@@ -25,4 +25,6 @@ Route::group(['middleware'=>['auth']], function(){
     Route::get('/admin/banner','AdminController@banner');
     Route::post('/admin/banner','AdminController@bannersave');
     Route::get('/admin/companydetail','AdminController@companydetail');
+    Route::get('/admin/study','AdminController@study');
+    Route::post('/admin/study','AdminController@savestudy');
 });

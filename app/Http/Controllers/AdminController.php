@@ -101,8 +101,6 @@ class AdminController extends Controller
             $jsondata = json_encode($data);
             Content::where('type','footer')
                 ->update(['value'=>$jsondata]);
-                    ;
-            dd($data);
         }
         else{
             $data = Content::where('type','footer')->get()->first();
@@ -110,6 +108,35 @@ class AdminController extends Controller
             return view('admin.companydetail')->with('data',$rec);
         }
 
+    }
+
+    public function study(){
+            $usa = Content::where('type','usa')->get()->first();
+            $australia = Content::where('type','australia')->get()->first();
+            $newzealand = Content::where('type','newzealand')->get()->first();
+            $europe = Content::where('type','europe')->get()->first();
+            return view('admin.study')
+                ->with('usa',$usa->value)
+                ->with('aus',$australia->value)
+                ->with('nwz',$newzealand->value)
+                ->with('eur',$europe->value)
+                ;
+    }
+
+
+    public function savestudy(){
+        $usa = Input::get('usa');
+        $aus = Input::get('aus');
+        $nwz = Input::get('nwz');
+        $eur = Input::get('eur');
+        Content::where('type','usa')
+            ->update(['value'=>$usa]);
+        Content::where('type','australia')
+            ->update(['value'=>$aus]);
+        Content::where('type','newzealand')
+            ->update(['value'=>$nwz]);
+        Content::where('type','europe')
+            ->update(['value'=>$eur]);
     }
 
 
