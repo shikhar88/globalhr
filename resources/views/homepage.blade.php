@@ -433,12 +433,13 @@
             <div id='social'>
 
             </div>
-            <form>
+            <form id="mailform">
                 <p>Get in Contact</p>
-                <input placeholder='Email' type='email'>
-                <input placeholder='Subject' type='text'>
-                <textarea placeholder='Message' rows='4'></textarea>
-                <input placeholder='Send' type='submit'>
+                {{--<input placeholder='Email' type='email'>--}}
+                <input placeholder='Subject' type='text' name="subject" id="mailSubject">
+                <textarea placeholder='Message' rows='4' name="message" id="mailMessage"></textarea>
+                <input placeholder='Send' type='submit' style="display: none;">
+                <a style="cursor: pointer;" class="btn btn-default" onclick="sendMail();">Submit</a>
             </form>
             <p>other way</p>
             <p class='other entypo-mail'>
@@ -451,7 +452,7 @@
 </div>
 @include('footer')
 <script src="assets/js/jquery.js"></script>
-
+<script src="assets/plugins/bootbox/bootbox.min.js"></script>
 <!-- Bootstrap Core JavaScript -->
 <script src="assets/js/bootstrap.min.js"></script>
 <!-- Script to Activate the Carousel -->
@@ -555,6 +556,31 @@
             },
             error:function (result) {
                 console.log(result);
+            }
+        });
+    }
+    function sendMail() {
+        if ($.trim($("#mailSubject").val()) == "")
+            $("#mailSubject").css("border","1px solid red");
+        else
+            $("#mailSubject").css("border","none");
+        if ($.trim($("#mailMessage").val()) == "")
+            $("#mailMessage").css("border","1px solid red");
+        else
+            $("#mailMessage").css("border","none");
+        if ($.trim($("#mailSubject").val()) == "" || $.trim($("#mailMessage").val()) == "")
+            return false;
+
+        var data = $("#mailform").serialize();
+        $.ajax({
+            url:'/mail',
+            method:'get',
+            data:data,
+            success:function () {
+                bootbox.alert('Your message was successfully sent');
+            },
+            error:function () {
+                bootbox.alert('Error sending message try again');
             }
         });
     }

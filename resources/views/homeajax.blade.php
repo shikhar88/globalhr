@@ -300,12 +300,13 @@
             <div id='social'>
 
             </div>
-            <form>
+            <form id="mailform">
                 <p>Get in Contact</p>
-                <input placeholder='Email' type='email'>
-                <input placeholder='Subject' type='text'>
-                <textarea placeholder='Message' rows='4'></textarea>
-                <input placeholder='Send' type='submit'>
+                {{--<input placeholder='Email' type='email'>--}}
+                <input placeholder='Subject' type='text' name="subject" id="mailSubject">
+                <textarea placeholder='Message' rows='4' name="message" id="mailMessage"></textarea>
+                <input placeholder='Send' type='submit' style="display: none;">
+                <a style="cursor: pointer;" class="btn btn-default" onclick="sendMail();">Submit</a>
             </form>
             <p>other way</p>
             <p class='other entypo-mail'>

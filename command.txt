@@ -25,3 +25,13 @@ php artisan db:seed --class=UsersTableSeeder
 php artisan db:seed --class=ContentTableSeeder
 php artisan db:seed --class=ImagesTableSeeder
 
+
+
+mail setting
+MAIL_DRIVER=smtp
+MAIL_HOST=smtp.gmail.com
+MAIL_PORT=587
+MAIL_USERNAME=sitemail.globalhr@gmail.com
+MAIL_PASSWORD=globalhr@00
+MAIL_ENCRYPTION=tls
+

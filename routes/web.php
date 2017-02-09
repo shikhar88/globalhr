@@ -13,7 +13,7 @@
 
 Route::get('/','HomeController@home');
 Route::get('/index','HomeController@homeajax');
-
+Route::get('/mail','MailController@sendMail');
 Route::get('/login','AdminController@admin');
 Route::post('/login','AdminController@authenticate');
 Route::get('study/{country}','HomeController@abroad');
