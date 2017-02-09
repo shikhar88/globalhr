@@ -47,19 +47,17 @@
             <div class="row">
                 <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
                 <div class="form-group">
-                    <div class="col-sm-12" style="padding-left:20px ; padding-right:20px" >
-
+                    <div class="col-sm-12" style="padding-left:20px ; padding-right:20px;padding-bottom: 25px" >
+                        <h2 style="text-align: center;font-weight: bold">USA</h2>
 
                         <textarea name="usa" rows=16 id="template_contents_usa" class="form-control tinymce">{!! $usa !!}</textarea>
 
 
                     </div>
                 </div>
-                <br>
-                <hr>
                 <div class="form-group">
-                    <div class="col-sm-12" style="padding-left:20px ; padding-right:20px" >
-
+                    <div class="col-sm-12" style="padding-left:20px ; padding-right:20px ;padding-bottom: 25px">
+                        <h2 style="text-align: center;font-weight: bold">Australia</h2>
 
                         <textarea name="aus" rows=16 id="template_contents_aus" class="form-control tinymce">{!! $aus !!}</textarea>
 
@@ -67,18 +65,18 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <div class="col-sm-12" style="padding-left:20px ; padding-right:20px" >
+                    <div class="col-sm-12" style="padding-left:20px ; padding-right:20px;padding-bottom: 25px">
 
-
+                        <h2 style="text-align: center;font-weight: bold">New Zealand</h2>
                         <textarea name="nwz" rows=16 id="template_contents_nwz" class="form-control tinymce">{!! $nwz !!}</textarea>
 
 
                     </div>
                 </div>
                 <div class="form-group">
-                    <div class="col-sm-12" style="padding-left:20px ; padding-right:20px" >
+                    <div class="col-sm-12" style="padding-left:20px ; padding-right:20px;padding-bottom: 25px" >
 
-
+                        <h2 style="text-align: center;font-weight: bold">Europe</h2>
                         <textarea name="eur" rows=16 id="template_contents_eur" class="form-control tinymce">{!! $eur !!}</textarea>
 
 
