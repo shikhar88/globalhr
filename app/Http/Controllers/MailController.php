@@ -18,7 +18,7 @@ class MailController extends Controller
             $msg =$_GET['message'];
 //        $to_email = 'basnet.shikhar@gmail.com';
 //        Mail::to($to_email)->send(new SendMail());
-        $data = array('subject'=>$subject ,'email' => 'basnet.shikhar@gmail.com', 'first_name' => 'GLOBALHR', 'from' => 'sitemail.globalhr@gmail.com', 'from_name' => 'globalhr' );
+        $data = array('subject'=>$subject ,'email' => 'sharma.parshuram1990@gmail.com ', 'first_name' => 'GLOBALHR', 'from' => 'sitemail.globalhr@gmail.com', 'from_name' => 'globalhr' );
 
         try{
         Mail::send( 'mail', ['data'=>$msg], function( $message ) use ($data)
