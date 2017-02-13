@@ -7,7 +7,7 @@
 <!--<![endif]-->
 <!-- start: HEAD -->
 <head>
-    <title>Rapido - Responsive Admin Template</title>
+    <title>Admin panel</title>
     <!-- start: META -->
     <meta charset="utf-8" />
     <!--[if IE]><meta http-equiv='X-UA-Compatible' content="IE=edge,IE=9,IE=8,chrome=1" /><![endif]-->
@@ -209,7 +209,7 @@
 <script src="../assets/plugins/bootstrap-switch/dist/js/bootstrap-switch.min.js"></script>
 <script src="../assets/plugins/bootstrap-select/bootstrap-select.min.js"></script>
 <script src="../assets/plugins/jquery-validation/dist/jquery.validate.min.js"></script>
-{{--<script src="../assets/plugins/bootstrap-fileupload/bootstrap-fileupload.min.js"></script>--}}
+<script src="../assets/plugins/bootstrap-fileupload/bootstrap-fileupload.min.js"></script>
 {{--<script src="../assets/plugins/DataTables/media/js/jquery.dataTables.min.js"></script>--}}
 {{--<script src="../assets/plugins/DataTables/media/js/DT_bootstrap.js"></script>--}}
 <script src="../assets/plugins/truncate/jquery.truncate.js"></script>
@@ -226,7 +226,7 @@
 <script src="../assets/plugins/nvd3/src/models/historicalBarChart.js"></script>
 <script src="../assets/plugins/nvd3/src/models/stackedArea.js"></script>
 <script src="../assets/plugins/nvd3/src/models/stackedAreaChart.js"></script>
-{{--<script src="../assets/plugins/jquery.sparkline/jquery.sparkline.js"></script>--}}
+<script src="../assets/plugins/jquery.sparkline/jquery.sparkline.js"></script>
 {{--<script src="../assets/plugins/easy-pie-chart/dist/jquery.easypiechart.min.js"></script>--}}
 <script src="../assets/js/index.js"></script>
 <!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
