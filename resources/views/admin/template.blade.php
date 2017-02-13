@@ -140,13 +140,16 @@
                         <a href="/admin"><i class="fa fa-bar-chart-o"></i> <span class="title">Charts</span> </a>
                     </li>
                     <li>
-                        <a href="/admin"><i class="fa fa-bar-chart-o"></i> <span class="title">Banner setting</span> </a>
+                        <a href="/admin/banner"><i class="fa fa-bar-chart-o"></i> <span class="title">Banner setting</span> </a>
                     </li>
                     <li>
                         <a href="/admin/aboutus"><i class="fa fa-bar-chart-o"></i> <span class="title">About us</span> </a>
                     </li>
                     <li>
                         <a href="/admin/study"><i class="fa fa-bar-chart-o"></i> <span class="title">Study abroad</span> </a>
+                    </li>
+                    <li>
+                        <a href="/admin/logo"><i class="fa fa-bar-chart-o"></i> <span class="title">Logo &</span> </a>
                     </li>
                 </ul>
                 <!-- end: MAIN NAVIGATION MENU -->

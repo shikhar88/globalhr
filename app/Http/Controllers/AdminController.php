@@ -139,5 +139,52 @@ class AdminController extends Controller
             ->update(['value'=>$eur]);
     }
 
+    public function logo() {
+//        if(Input::get('crud',null)=='1'){
+//            if(Input::get('action')=='delete')
+//            {
+//                $id = Input::get('id');
+//                $img = Images::find($id);
+//                try{
+//                    unlink(public_path().$img->path);
+//                }
+//                catch(\ErrorException $e){
+//
+//                }
+//                Images::destroy($id);
+//            }
+//            elseif(Input::get('action')=='update'){
+//                $id = Input::get('id');
+//                $active = Input::get('active');
+//                Images::where('id',$id)
+//                    ->update(['active'=>$active]);
+//            }
+//        }
+//        else{
+//            $banner = Images::where('type','banner')->get();
+//            return view('admin.banner')->with('banner',$banner);
+//        }
+            $logo = Images::where('type','logo')->get()->first();
+            return view('admin.logo')->with('logo',$logo->path);
+
+    }
+    public function logosave(){
+        $data=Input::all();
+        if(isset($data['image'])){
+            $extension=$data['image']->guessExtension();
+            $filename='logo'.'.'.$extension;
+            if($data['image']->move(public_path().'/uploads/banner_images/',$filename))
+            {
+                $img = new Images();
+                $img->type = 'banner';
+                $img->path ='/uploads/banner_images/'.$filename;
+                $img->active = '1';
+                $img->save();
+            }
+        }
+        $logo = Images::where('type','logo')->get()->first();
+        return view('admin.logo')->with('logo',$logo->path);
+    }
+
 
 }
