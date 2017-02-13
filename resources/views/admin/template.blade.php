@@ -34,7 +34,7 @@
     <link rel="stylesheet" href="../assets/plugins/toastr/toastr.min.css">
     <link rel="stylesheet" href="../assets/plugins/bootstrap-select/bootstrap-select.min.css">
     <link rel="stylesheet" href="../assets/plugins/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.min.css">
-    <link rel="stylesheet" href="../assets/plugins/DataTables/media/css/DT_bootstrap.css">
+    {{--<link rel="stylesheet" href="../assets/plugins/DataTables/media/css/DT_bootstrap.css">--}}
     <link rel="stylesheet" href="../assets/plugins/bootstrap-fileupload/bootstrap-fileupload.min.css">
     <link rel="stylesheet" href="../assets/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css">
     <!-- end: CSS REQUIRED FOR THIS SUBVIEW CONTENTS-->
@@ -116,7 +116,7 @@
                 <!-- start: MAIN NAVIGATION MENU -->
                 <ul class="main-navigation-menu">
                     <li class="active open">
-                        <a href="index.html"><i class="fa fa-home"></i> <span class="title"> Dashboard </span><span class="label label-default pull-right ">LABEL</span> </a>
+                        <a href="/admin"><i class="fa fa-home"></i> <span class="title"> Dashboard </span><span class="label label-default pull-right ">LABEL</span> </a>
                     </li>
                     <li>
                         <a href="javascript:void(0)"><i class="fa fa-desktop"></i> <span class="title"> Layouts </span><i class="icon-arrow"></i> </a>
@@ -127,7 +127,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="layouts_sidebar_closed.html">
+                                <a href="#">
                                     <span class="title"> Sidebar Closed </span>
                                 </a>
                             </li>
@@ -137,10 +137,10 @@
                         <a href="/admin/companydetail"><i class="fa fa-bar-chart-o"></i> <span class="title">Company detail</span> </a>
                     </li>
                     <li>
-                        <a href="charts.html"><i class="fa fa-bar-chart-o"></i> <span class="title">Charts</span> </a>
+                        <a href="/admin"><i class="fa fa-bar-chart-o"></i> <span class="title">Charts</span> </a>
                     </li>
                     <li>
-                        <a href="/admin/banner"><i class="fa fa-bar-chart-o"></i> <span class="title">Banner setting</span> </a>
+                        <a href="/admin"><i class="fa fa-bar-chart-o"></i> <span class="title">Banner setting</span> </a>
                     </li>
                     <li>
                         <a href="/admin/aboutus"><i class="fa fa-bar-chart-o"></i> <span class="title">About us</span> </a>
@@ -155,7 +155,7 @@
         </div>
         <div class="slide-tools">
             <div class="col-xs-6 text-right no-padding">
-                <a class="btn btn-sm log-out text-right" href="login_login.html">
+                <a class="btn btn-sm log-out text-right" href="/logout">
                     <i class="fa fa-power-off"></i> Log Out
                 </a>
             </div>
@@ -206,14 +206,14 @@
 <script src="../assets/plugins/bootstrap-switch/dist/js/bootstrap-switch.min.js"></script>
 <script src="../assets/plugins/bootstrap-select/bootstrap-select.min.js"></script>
 <script src="../assets/plugins/jquery-validation/dist/jquery.validate.min.js"></script>
-<script src="../assets/plugins/bootstrap-fileupload/bootstrap-fileupload.min.js"></script>
-<script src="../assets/plugins/DataTables/media/js/jquery.dataTables.min.js"></script>
-<script src="../assets/plugins/DataTables/media/js/DT_bootstrap.js"></script>
+{{--<script src="../assets/plugins/bootstrap-fileupload/bootstrap-fileupload.min.js"></script>--}}
+{{--<script src="../assets/plugins/DataTables/media/js/jquery.dataTables.min.js"></script>--}}
+{{--<script src="../assets/plugins/DataTables/media/js/DT_bootstrap.js"></script>--}}
 <script src="../assets/plugins/truncate/jquery.truncate.js"></script>
 <script src="../assets/plugins/summernote/dist/summernote.min.js"></script>
 <script src="../assets/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
 <script src="../assets/js/subview.js"></script>
-<script src="../assets/js/subview-examples.js"></script>
+{{--<script src="../assets/js/subview-examples.js"></script>--}}
 <!-- end: JAVASCRIPTS REQUIRED FOR SUBVIEW CONTENTS -->
 <!-- start: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
 <script src="../assets/plugins/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
@@ -223,8 +223,8 @@
 <script src="../assets/plugins/nvd3/src/models/historicalBarChart.js"></script>
 <script src="../assets/plugins/nvd3/src/models/stackedArea.js"></script>
 <script src="../assets/plugins/nvd3/src/models/stackedAreaChart.js"></script>
-<script src="../assets/plugins/jquery.sparkline/jquery.sparkline.js"></script>
-<script src="../assets/plugins/easy-pie-chart/dist/jquery.easypiechart.min.js"></script>
+{{--<script src="../assets/plugins/jquery.sparkline/jquery.sparkline.js"></script>--}}
+{{--<script src="../assets/plugins/easy-pie-chart/dist/jquery.easypiechart.min.js"></script>--}}
 <script src="../assets/js/index.js"></script>
 <!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
 <!-- start: CORE JAVASCRIPTS  -->
@@ -235,8 +235,8 @@
 <script>
     jQuery(document).ready(function() {
         Main.init();
-        SVExamples.init();
-        Index.init();
+//        SVExamples.init();
+//        Index.init();
     });
     function showToast(type,msg){
         toastr.options = {
