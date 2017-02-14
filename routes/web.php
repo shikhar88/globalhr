@@ -28,5 +28,5 @@ Route::group(['middleware'=>['auth']], function(){
     Route::get('/admin/study','AdminController@study');
     Route::post('/admin/study','AdminController@savestudy');
     Route::get('/admin/logo','AdminController@logo');
-    Route::post('/admin/savelogo','AdminController@logosave');
+    Route::post('/admin/logo','AdminController@logosave');
 });

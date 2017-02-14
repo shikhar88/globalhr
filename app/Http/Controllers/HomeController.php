@@ -16,10 +16,12 @@ class HomeController extends Controller
        }
        $companydet = Content::where('type','footer')->get()->first();
        $companydetails = json_decode($companydet->value);
+       $logo = Images::where('type','logo')->get()->first();
        return view('homepage')
            ->with('aboutus',$aboutus[0]->value)
            ->with('banner',$banner)
            ->with('comapnydetail',$companydetails)
+           ->with('logo',$logo->path)
            ;
    }
 

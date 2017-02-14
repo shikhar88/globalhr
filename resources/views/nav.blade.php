@@ -10,7 +10,7 @@
                 <span class="icon-bar"></span>
             </button>
             <!--<p> Lorem ipsum <a href="#"><span data-title="sollicitudin">sollicitudin</span></a>. Possimus nulla.</p>-->
-            <p><a class="navbar-brand" style="cursor: pointer" onclick="loadHome('1')"><img src="assets/images/logo.png" height="100%" width="100%"></a></p>
+            <p><a class="navbar-brand" style="cursor: pointer" onclick="loadHome('1')"><img src="{{$logo}}" height="100%" width="100%"></a></p>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">

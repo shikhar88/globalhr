@@ -86,7 +86,7 @@
                     <div class="form-group">
                         <div class="col-sm-12">
                             <label>
-                                Image Upload
+                                Banner Image Upload
                             </label>
                             <div class="fileupload fileupload-new" data-provides="fileupload">
                                 <div class="fileupload-new thumbnail"><img
@@ -130,7 +130,7 @@
         }
 
         function removebanner(bid) {
-            bootbox.confirm("Are you sure you want to delete this iamge",function () {
+            bootbox.confirm("Are you sure you want to delete this image",function () {
                 $.ajax({
                     url: '/admin/banner',
                     data: {'id': bid, 'action': 'delete', 'crud': '1'},

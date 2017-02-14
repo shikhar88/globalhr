@@ -32,7 +32,8 @@ class AdminController extends Controller
 
 
     public function dashboard(){
-        return view('admin.template');
+        $logo = Images::where('type','logo')->get()->first();
+        return view('admin.template')->with('logo',$logo->path);
     }
 
     public function content(){
@@ -140,50 +141,75 @@ class AdminController extends Controller
     }
 
     public function logo() {
-//        if(Input::get('crud',null)=='1'){
-//            if(Input::get('action')=='delete')
-//            {
-//                $id = Input::get('id');
-//                $img = Images::find($id);
-//                try{
-//                    unlink(public_path().$img->path);
-//                }
-//                catch(\ErrorException $e){
-//
-//                }
-//                Images::destroy($id);
-//            }
-//            elseif(Input::get('action')=='update'){
-//                $id = Input::get('id');
-//                $active = Input::get('active');
-//                Images::where('id',$id)
-//                    ->update(['active'=>$active]);
-//            }
-//        }
-//        else{
-//            $banner = Images::where('type','banner')->get();
-//            return view('admin.banner')->with('banner',$banner);
-//        }
+        if(Input::get('crud',null)=='1'){
+            if(Input::get('action')=='delete')
+            {
+                $id = Input::get('id');
+                $img = Images::find($id);
+                try{
+                    unlink(public_path().$img->path);
+                }
+                catch(\ErrorException $e){
+
+                }
+                Images::destroy($id);
+            }
+            elseif(Input::get('action')=='update'){
+                $id = Input::get('id');
+                $active = Input::get('active');
+                Images::where('id',$id)
+                    ->update(['active'=>$active]);
+            }
+        }
+        else{
             $logo = Images::where('type','logo')->get()->first();
-            return view('admin.logo')->with('logo',$logo->path);
+            $certification = Images::where('type','certification')->get();
+            return view('admin.logo')->with('logo',$logo->path)
+                ->with('certification',$certification)
+                ;
+        }
+
 
     }
     public function logosave(){
         $data=Input::all();
-        if(isset($data['image'])){
-            $extension=$data['image']->guessExtension();
+        if(isset($data['logo'])){
+            $img = Images::where('type','logo')->get()->first();
+            try{
+                unlink(public_path().$img->path);
+            }
+            catch(\ErrorException $e){
+
+            }
+            Images::destroy($img->id);
+            $extension=$data['logo']->guessExtension();
             $filename='logo'.'.'.$extension;
-            if($data['image']->move(public_path().'/uploads/banner_images/',$filename))
+            if($data['logo']->move(public_path().'/uploads/logo/',$filename))
             {
                 $img = new Images();
-                $img->type = 'banner';
-                $img->path ='/uploads/banner_images/'.$filename;
+                $img->type = 'logo';
+                $img->path ='/uploads/logo/'.$filename;
+                $img->active = '1';
+                $img->save();
+            }
+        }
+        elseif (isset($data['certification'])){
+            $extension=$data['certification']->guessExtension();
+            $filename=str_random(80).'.'.$extension;
+            if($data['certification']->move(public_path().'/uploads/certification/',$filename))
+            {
+                $img = new Images();
+                $img->type = 'certification';
+                $img->path ='/uploads/certification/'.$filename;
                 $img->active = '1';
                 $img->save();
             }
         }
         $logo = Images::where('type','logo')->get()->first();
-        return view('admin.logo')->with('logo',$logo->path);
+        $certification = Images::where('type','certification')->get();
+        return view('admin.logo')->with('logo',$logo->path)
+            ->with('certification',$certification)
+            ;
     }
 
 

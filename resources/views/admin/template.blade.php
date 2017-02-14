@@ -59,14 +59,14 @@
     <!-- start: TOPBAR -->
     <header class="topbar navbar navbar-inverse navbar-fixed-top inner">
         <!-- start: TOPBAR CONTAINER -->
-        <div class="container">
+        <div class="container" style="min-height: 40px;">
             <div class="navbar-header">
                 <a class="sb-toggle-left hidden-md hidden-lg" href="#main-navbar">
                     <i class="fa fa-bars"></i>
                 </a>
                 <!-- start: LOGO -->
                 <a class="navbar-brand" href="/">
-                    <img src="../assets/images/logo.png" alt="Rapido"/>
+                    <img style="max-height: 40px;" src="{{$logo}}" alt="Rapido"/>
                 </a>
                 <!-- end: LOGO -->
             </div>
