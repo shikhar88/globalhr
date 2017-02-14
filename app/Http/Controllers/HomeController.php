@@ -17,11 +17,13 @@ class HomeController extends Controller
        $companydet = Content::where('type','footer')->get()->first();
        $companydetails = json_decode($companydet->value);
        $logo = Images::where('type','logo')->get()->first();
+       $certification = Images::where('type','certification')->get();
        return view('homepage')
            ->with('aboutus',$aboutus[0]->value)
            ->with('banner',$banner)
            ->with('comapnydetail',$companydetails)
            ->with('logo',$logo->path)
+           ->with('certification',$certification)
            ;
    }
 
@@ -29,12 +31,14 @@ class HomeController extends Controller
        $aboutus = Content::where('type','aboutus')->get();
        $banner = Images::where('active','1')
            ->where('type','banner')->get();
+       $certification = Images::where('type','certification')->get();
        if($banner){
            $banner[0]->class ='active';
        }
        return view('homeajax')
            ->with('aboutus',$aboutus[0]->value)
            ->with('banner',$banner)
+           ->with('certification',$certification)
            ;
    }
    public function abroad($country){

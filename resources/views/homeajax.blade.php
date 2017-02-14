@@ -179,44 +179,20 @@
 <!-- Portfolio Section -->
 <div class="row" style="background-color:#F7F6F0 ">
     <div class="col-lg-12" style="color:#666; text-align:center">
-        <h2 class="page-header1" style="color: #666">Portfolio Heading</h2>
-        <div class="head_line"></div>
+        <h2 class="page-header1" style="color: #666">Our Certification<div class="head_line"></div></h2>
+
     </div>
 
     <div class="col-lg-1"></div>
-    <div class="col-lg-10 divPadding">
-        <div class="col-lg-3 col-sm-6">
-            <a href="assets/images/portfolio/fullsize/1.jpg" class="portfolio-box">
-                <img src="assets/images/portfolio/thumbnails/1.jpg" class="img-responsive" alt="">
-                <div class="portfolio-box-caption">
-                    <div class="portfolio-box-caption-content">
-                        <div class="project-category text-faded" style="text-align:center">
-                            Category
-                        </div>
-                        <div class="project-name" style="text-align:center">
-                            Project Name
-                        </div>
-                    </div>
+    <div id="jssor_1" style="position:relative;margin:0 auto;top:0px;left:0px;width:980px;height:200px;overflow:hidden;visibility:hidden;">
+
+        <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:980px;height:100px;overflow:hidden;">
+            @foreach($certification as $crt)
+                <div>
+                    <img data-u="image" src="{{$crt->path}}" />
                 </div>
-            </a>
-        </div>
-        <div class="col-md-3 col-sm-6">
-            <a href="portfolio-item.html">
-
-                <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
-
-            </a>
-
-        </div>
-        <div class="col-md-3 col-sm-6">
-            <a href="portfolio-item.html">
-                <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
-            </a>
-        </div>
-        <div class="col-md-3 col-sm-6">
-            <a href="portfolio-item.html">
-                <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
-            </a>
+                <div style="margin:1px"></div>
+            @endforeach
         </div>
     </div>
     <div class="col-lg-1"></div>
@@ -227,41 +203,107 @@
 <!-- Features Section -->
 <div class="row">
     <div class="col-lg-12 divPadding" style="text-align:center" id="company_feature">
-        <h2 class="page-header1">Services</h2>
+        <h2 class="page-header1">Our Services</h2>
         <div class="head_line"></div>
     </div>
-
-
-    <div class="col-md-7 col-lg-offset-1">
+    <div class="col-md-4 col-lg-offset-1">
 
         <div class="panel panel-default">
             <div class="panel-body">
                 <p style="text-align: center;"><strong>How WE Can Help?</strong></p>
-                <div class="newspaper">
-                    <li>Guaranteed scholarships for deserving students</li>
-                    <li> Perfect Visa Guidance</li>
-                    <li> Well Experienced Staff</li>
-                    <li> Work Honesty</li>
-                    <li> Homely Environment</li>
-                    <li> Expert Advice For Low Fund Course</li>
-                    <li> Application Processing</li>
-                    <li> Free Interview Training</li>
-                    <li> Pre-departure & Post Landing Services</li>
-                    <li> Air Ticket & Forex Arrangement</li>
-                    <li> Accommodation Arrangement</li>
-                    <li> College University Transfer</li>
-                    <li> Visa Extension</li>
-                    <li> No Charges for Spouse Visa</li>
-                    <li> Finance Assistance</li>
-                    <li> Parents & Family Visa Supports</li>
-                    <li> Pay After Visa Facility</li>
+                <!--<div class="newspaper">-->
+                <li><a href="#"  data-toggle="modal" data-target="#pointModal">Guaranteed scholarships for deserving students</a></li>
+                <li><a href="#"  data-toggle="modal" data-target="#pointModal">Guaranteed scholarships for deserving students</a></li>
+                <li><a href="#"  data-toggle="modal" data-target="#pointModal">Guaranteed scholarships for deserving students</a></li>
+                <li><a href="#"  data-toggle="modal" data-target="#pointModal">Guaranteed scholarships for deserving students</a></li>
+                <li><a href="#"  data-toggle="modal" data-target="#pointModal">Guaranteed scholarships for deserving students</a></li>
+                <li><a href="#"  data-toggle="modal" data-target="#pointModal">Guaranteed scholarships for deserving students</a></li>
+                <li><a href="#"  data-toggle="modal" data-target="#pointModal">Guaranteed scholarships for deserving students</a></li>
+                <li><a href="#"  data-toggle="modal" data-target="#pointModal">Guaranteed scholarships for deserving students</a></li>
+            </div>
+
+            <!--</div>-->
+        </div>
+        <div class="modal fade" id="pointModal" role="dialog">
+            <div class="vertical-alignment-helper">
+                <div class="modal-dialog vertical-align-center">
+                    <div class="modal-content" style="text-align: justify;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Guaranteed scholarships for deserving students</h4>
+                        </div>
+
+                        <p class="modal-body"></p>
+                        <p style="text-align: justify; padding:0% 3%">Guaranteed scholarships for deserving students</p>
+                    </div>
                 </div>
+
 
             </div>
         </div>
     </div>
-    <div class="col-md-3">
-        <img class="img-responsive" src="http://placehold.it/700x450" alt="">
+    <div id="jssor_2" class="col-md-8" style="position:relative;margin:0 auto;top:0px;left:0px;width:810px;height:300px;overflow:hidden;visibility:hidden;background-color:rgba(182,182,182,0.32);">
+        <!-- Loading Screen -->
+        <div data-u="loading" style="position:absolute;top:0px;left:0px;background-color:rgba(123,232,223,0.7);">
+            <!--        <div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;"></div>-->
+            <!--<div style="position:absolute;display:block;background:url('img/loading.gif') no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>-->
+        </div>
+        <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:600px;height:300px;overflow:hidden;">
+            <div>
+                <!--<img data-u="image" src="img/3.jpg" />-->
+                <p style="margin: 30% 10%; text-align: justify; color: #444;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus hendrerit dictum fringilla. Sed sollicitudin vitae urna sit amet fermentum. Curabitur sit amet efficitur est. Etiam egestas ipsum rutrum mi scelerisque dapibus. Morbi feugiat nunc non ultrices commodo. Vestibulum aliquam risus erat, vitae varius libero scelerisque sit amet. Etiam suscipit est at risus tincidunt lobortis. Aliquam velit nibh, bibendum sit amet risus sed, congue molestie leo. Nam sollicitudin ultricies eleifend. </p>
+                <div data-u="thumb">
+                    <img class="i" src="assets/images/Usa.png" />
+                    <div class="t">Person Name0</div>
+                    <div class="c">Personal position</div>
+                </div>
+            </div>
+            <div>
+                <img data-u="image" src="assets/images/1.jpg" />
+                <div data-u="thumb">
+                    <img class="i" src="assets/images/slide3.jpg" />
+                    <div class="t">Person Name1</div>
+                    <div class="c">Personal position</div>
+                </div>
+            </div>
+            <div>
+                <img data-u="image" src="assets/images/3.jpg" />
+                <div data-u="thumb">
+                    <img class="i" src="assets/images/slide3.jpg" />
+                    <div class="t">Person Name2</div>
+                    <div class="c">Personal position</div>
+                </div>
+            </div>
+            <div>
+                <img data-u="image" src="assets/images/1.jpg" />
+                <div data-u="thumb">
+                    <img class="i" src="assets/images/Usa.png" />
+                    <div class="t">Person Name3</div>
+                    <div class="c">Personal position</div>
+                </div>
+            </div>
+            <div>
+                <img data-u="image" src="assets/images/3.jpg" />
+                <div data-u="thumb">
+                    <img class="i" src="assets/images/slide3.jpg" />
+                    <div class="t">Person Name4</div>
+                    <div class="c">Personal position</div>
+                </div>
+            </div>
+        </div>
+        <!-- Thumbnail Navigator -->
+        <div data-u="thumbnavigator" class="jssort11" style="position:absolute;right:5px;top:0px;font-family:Arial, Helvetica, sans-serif;-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none;width:200px;height:300px;" data-autocenter="2">
+            <!-- Thumbnail Item Skin Begin -->
+            <div data-u="slides" style="cursor: default;">
+                <div data-u="prototype" class="p">
+                    <div data-u="thumbnailtemplate" class="tp"></div>
+                </div>
+            </div>
+            <!-- Thumbnail Item Skin End -->
+        </div>
+        <!-- Arrow Navigator -->
+        <!--<span data-u="arrowleft" class="jssora02l" style="top:0px;left:8px;width:55px;height:55px;" data-autocenter="2"></span>-->
+        <!--<span data-u="arrowright" class="jssora02r" style="top:0px;right:218px;width:55px;height:55px;" data-autocenter="2"></span>-->
     </div>
 
 </div>

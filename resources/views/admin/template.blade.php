@@ -149,7 +149,7 @@
                         <a href="/admin/study"><i class="fa fa-bar-chart-o"></i> <span class="title">Study abroad</span> </a>
                     </li>
                     <li>
-                        <a href="/admin/logo"><i class="fa fa-bar-chart-o"></i> <span class="title">Logo &</span> </a>
+                        <a href="/admin/logo"><i class="fa fa-bar-chart-o"></i> <span class="title">Logo & Certification</span> </a>
                     </li>
                 </ul>
                 <!-- end: MAIN NAVIGATION MENU -->

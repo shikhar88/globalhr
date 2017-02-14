@@ -37,6 +37,7 @@ class AdminController extends Controller
     }
 
     public function content(){
+        $logo = Images::where('type','logo')->get()->first();
             if(Input::get('save',null)=='1'){
                 $content = Input::get('content');
                 Content::where('type','aboutus')
@@ -45,11 +46,12 @@ class AdminController extends Controller
             }
             else{
                 $aboutus = Content::where('type','aboutus')->get();
-                return view('admin.aboutus')->with('aboutus',$aboutus[0]->value);
+                return view('admin.aboutus')->with('aboutus',$aboutus[0]->value)->with('logo',$logo->path);
             }
     }
 
     public function banner() {
+        $logo = Images::where('type','logo')->get()->first();
         if(Input::get('crud',null)=='1'){
             if(Input::get('action')=='delete')
             {
@@ -72,11 +74,12 @@ class AdminController extends Controller
         }
         else{
             $banner = Images::where('type','banner')->get();
-            return view('admin.banner')->with('banner',$banner);
+            return view('admin.banner')->with('banner',$banner)->with('logo',$logo->path);
         }
     }
 
     public function bannersave(){
+        $logo = Images::where('type','logo')->get()->first();
         $data=Input::all();
         if(isset($data['image'])){
             $extension=$data['image']->guessExtension();
@@ -91,11 +94,12 @@ class AdminController extends Controller
             }
         }
         $banner = Images::where('type','banner')->get();
-        return view('admin.banner')->with('banner',$banner);
+        return view('admin.banner')->with('banner',$banner)->with('logo',$logo->path);
     }
 
 
     public function companydetail(){
+        $logo = Images::where('type','logo')->get()->first();
         if(Input::get('saveContact',null)=='1'){
             $data = $_GET;
             unset($data['saveContact']);
@@ -106,12 +110,13 @@ class AdminController extends Controller
         else{
             $data = Content::where('type','footer')->get()->first();
             $rec = json_decode($data->value);
-            return view('admin.companydetail')->with('data',$rec);
+            return view('admin.companydetail')->with('data',$rec)->with('logo',$logo->path);
         }
 
     }
 
     public function study(){
+             $logo = Images::where('type','logo')->get()->first();
             $usa = Content::where('type','usa')->get()->first();
             $australia = Content::where('type','australia')->get()->first();
             $newzealand = Content::where('type','newzealand')->get()->first();
@@ -121,7 +126,7 @@ class AdminController extends Controller
                 ->with('aus',$australia->value)
                 ->with('nwz',$newzealand->value)
                 ->with('eur',$europe->value)
-                ;
+                ->with('logo',$logo->path);
     }
 
 
