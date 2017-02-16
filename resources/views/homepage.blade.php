@@ -578,6 +578,7 @@
                 $('.carousel').carousel({
                     interval: 2000 //changes the speed
                 });
+                jssor_1_slider_init();
                 myMap();
                 if(menu == '1'){
                     $("#homemenu").attr('onclick',"scrollUpHome();");
