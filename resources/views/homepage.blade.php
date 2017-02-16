@@ -578,7 +578,9 @@
                 $('.carousel').carousel({
                     interval: 2000 //changes the speed
                 });
+                jssor_0_slider_init();
                 jssor_1_slider_init();
+
                 myMap();
                 if(menu == '1'){
                     $("#homemenu").attr('onclick',"scrollUpHome();");
@@ -632,7 +634,13 @@
 <script src="assets/js/jssor.slider-22.2.6.min.js" type="text/javascript"></script>
 <script type="text/javascript">
     jQuery(document).ready(function ($) {
-
+        jssor_0_slider_init();
+        jssor_1_slider_init();
+        /*responsive code end*/
+    });
+</script>
+<script type="text/javascript">
+    jssor_0_slider_init = function () {
         var jssor_1_options = {
             $AutoPlay: true,
             $Idle: 0,
@@ -662,11 +670,7 @@
         $(window).bind("load", ScaleSlider);
         $(window).bind("resize", ScaleSlider);
         $(window).bind("orientationchange", ScaleSlider);
-        jssor_1_slider_init();
-        /*responsive code end*/
-    });
-</script>
-<script type="text/javascript">
+    }
     jssor_1_slider_init = function() {
 
         var jssor_1_options = {
