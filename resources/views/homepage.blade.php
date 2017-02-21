@@ -128,196 +128,196 @@
 
 </head>
 <body>
-@include('nav');
+@include('nav')
 <!-- Navigation -->
 <div class="bodycontent">
-<div id="myCarousel" class="carousel slide" data-ride="carousel" id="home">
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-        @foreach($banner as $key=>$value)
-            <li data-target="#myCarousel" data-slide-to="{{$key}}" class="{{$value->class}}"></li>
-        @endforeach
-    </ol>
+    <div id="myCarousel" class="carousel slide" data-ride="carousel" id="home">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            @foreach($banner as $key=>$value)
+                <li data-target="#myCarousel" data-slide-to="{{$key}}" class="{{$value->class}}"></li>
+            @endforeach
+        </ol>
 
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner" role="listbox">
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
             @foreach($banner as $key=>$value)
                 <div class="item {{$value->class}}">
                     <img src="{{$value->path}}"/>
                 </div>
             @endforeach
 
+        </div>
+
+        <!-- Left and right controls -->
+        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
     </div>
+    <!-- Page Content -->
+    <div class="container" style="width:100%">
 
-    <!-- Left and right controls -->
-    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-    </a>
-</div>
-<!-- Page Content -->
-<div class="container" style="width:100%">
+        <!-- Marketing Icons Section -->
+        <div class="row" style="margin:1% 0 3% 0">
 
-    <!-- Marketing Icons Section -->
-    <div class="row" style="margin:1% 0 3% 0">
-
-        <div class="col-lg-12" style="text-align:center" id="aboutus">
-            <h1 class="page-header1" style="margin-top: 3%">
-                Welcome to our company
-            </h1>
-            <div class="head_line"></div>
-        </div>
-        <!--<div class="well">-->
-        <div class="row">
-
-            <div class="col-lg-3"></div>
-            <div class="col-lg-6">
-                <div class="panel panel-default">
-
-                    <div class="panel-heading">
-                        <p style="text-align: center">Study In USA United States of America commonly known as USA is a
-                            country having migrants to try their luck from more than 150 countries! Study In Australia
-                            Australia has the third highest number of international students in the world behind only
-                            the United Kingdom. Study In New Zealand Every new day in the world</p>
-                    </div>
-                </div>
+            <div class="col-lg-12" style="text-align:center" id="aboutus">
+                <h1 class="page-header1" style="margin-top: 3%">
+                    Welcome to our company
+                </h1>
+                <div class="head_line"></div>
             </div>
-            <div class="col-lg-3"></div>
-        </div>
-        <!--</div>-->
-
-
-        <div class="col-lg-1">
-        </div>
-        <div class="col-lg-10 divPadding">
+            <!--<div class="well">-->
             <div class="row">
+
+                <div class="col-lg-3"></div>
                 <div class="col-lg-6">
                     <div class="panel panel-default">
+
                         <div class="panel-heading">
-                            <h4></i> About Us</h4>
-                        </div>
-                        <div class="panel-body">
-                            <p><strong>Welcome To Global Education & Human Resources P.Ltd.</strong></p>
-                            <p style="text-align: justify">Global Education & Human Resources P.Ltd. is a renowned
-                                education consultancy established in 2004 with a major aim to provide an outstanding
-                                counseling and recruitment services to our Nepalese students for abroad studies. Global
-                                is a private establishment registered with the Office of the Company Registrar, Ministry
-                                of Industry, Commerce and Supply, Government of Nepal. The main office of the
-                                organization is located in the heart of capital city at Putalisadak, (Shankerdev Campus
-                                Road) Kathmandu, Nepal. Global Education is a service oriented organization that
-                                consistently explores better educational and career opportunities for deserving
-                                students. We are a team of professionals dedicated in to enhance educational growth and
-                                integrity.</p>
-                            <a href="#" class="btn btn-default" data-toggle="modal" data-target="#myModal">Learn
-                                More</a>
-                        </div>
-                    </div>
-                    <div class="modal fade" id="myModal" role="dialog">
-                        <div class="vertical-alignment-helper">
-                            <div class="modal-dialog vertical-align-center">
-
-                                Modal content
-                                <div class="modal-content" style="text-align: justify; width: 60%; padding: 2%;">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                        <h4 class="modal-title">About Us</h4>
-                                    </div>
-
-                                    <p class="modal-body"></p>
-                                    {!! $aboutus !!}
-                                </div>
-                            </div>
-
-
+                            <p style="text-align: center">Study In USA United States of America commonly known as USA is a
+                                country having migrants to try their luck from more than 150 countries! Study In Australia
+                                Australia has the third highest number of international students in the world behind only
+                                the United Kingdom. Study In New Zealand Every new day in the world</p>
                         </div>
                     </div>
                 </div>
-
-
-                <div class="col-lg-6">
-                    <div class="panel panel-default">
-                        <div class="panel-body">
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="container_my">
-                                        <div class="img">
-                                            <a onclick="study('study/usa')" style="cursor: pointer;">
-                                            <img src="assets/images/Usa.png" alt="Avatar" class="image" style="width:100%">
-                                            <div class="middle">
-                                                <div style="padding: 1%"> United States of America commonly known as USA is a country having migrants to try their luck from more than 150 countries!</div>
-                                            </div>
-                                            <div class="desc" style="padding-left: 14%;text-align: left">Study In United State
-                                            </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div style="margin-top: 15%"></div>
-                                    <div class="container_my">
-                                        <div class="img">
-                                            <a onclick="study('study/australia')" style="cursor: pointer;">
-                                            <img src="assets/images/Australia.png" alt="Avatar" class="image" style="width:100%">
-                                            <div class="middle">
-                                                <div style="padding: 1%"> Australia has the third highest number of international students in the world behind only the United Kingdom.</div>
-                                            </div>
-                                            <div class="desc" style="padding-left: 14%;text-align: left">Study In Australia
-                                            </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="container_my">
-                                        <div class="img">
-                                            <a onclick="study('study/newzealand')" style="cursor: pointer;">
-                                            <img src="assets/images/new_zealand.png" alt="Avatar" class="image" style="width:100%">
-                                            <div class="middle">
-                                                <div style="padding: 1%">  Every new day in the world starts in New Zealand. Nepali students choose NZ as their preferred destination to study.</div>
-                                            </div>
-                                            <div class="desc" style="padding-left: 14%;text-align: left">Study In New Zealand
-                                            </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div style="margin-top: 15%"></div>
-                                    <div class="container_my">
-                                        <div class="img">
-                                            <a onclick="study('study/europe')" style="cursor: pointer;">
-                                            <img src="assets/images/no_image.jpg" alt="Avatar" class="image" style="width:100%">
-                                            <div class="middle">
-                                                <div style="padding: 1%"> No text</div>
-                                            </div>
-                                            <div class="desc" style="padding-left: 14%;text-align: left">Study In Europe
-                                            </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
+                <div class="col-lg-3"></div>
             </div>
+            <!--</div>-->
 
+
+            <div class="col-lg-1">
+            </div>
+            <div class="col-lg-10 divPadding">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4></i> About Us</h4>
+                            </div>
+                            <div class="panel-body">
+                                <p><strong>Welcome To Global Education & Human Resources P.Ltd.</strong></p>
+                                <p style="text-align: justify">Global Education & Human Resources P.Ltd. is a renowned
+                                    education consultancy established in 2004 with a major aim to provide an outstanding
+                                    counseling and recruitment services to our Nepalese students for abroad studies. Global
+                                    is a private establishment registered with the Office of the Company Registrar, Ministry
+                                    of Industry, Commerce and Supply, Government of Nepal. The main office of the
+                                    organization is located in the heart of capital city at Putalisadak, (Shankerdev Campus
+                                    Road) Kathmandu, Nepal. Global Education is a service oriented organization that
+                                    consistently explores better educational and career opportunities for deserving
+                                    students. We are a team of professionals dedicated in to enhance educational growth and
+                                    integrity.</p>
+                                <a href="#" class="btn btn-default" data-toggle="modal" data-target="#myModal">Learn
+                                    More</a>
+                            </div>
+                        </div>
+                        <div class="modal fade" id="myModal" role="dialog">
+                            <div class="vertical-alignment-helper">
+                                <div class="modal-dialog vertical-align-center">
+
+                                    Modal content
+                                    <div class="modal-content" style="text-align: justify; width: 60%; padding: 2%;">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            <h4 class="modal-title">About Us</h4>
+                                        </div>
+
+                                        <p class="modal-body"></p>
+                                        {!! $aboutus !!}
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-lg-6">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="container_my">
+                                            <div class="img">
+                                                <a onclick="study('study/usa')" style="cursor: pointer;">
+                                                    <img src="assets/images/Usa.png" alt="Avatar" class="image" style="width:100%">
+                                                    <div class="middle">
+                                                        <div style="padding: 1%"> United States of America commonly known as USA is a country having migrants to try their luck from more than 150 countries!</div>
+                                                    </div>
+                                                    <div class="desc" style="padding-left: 14%;text-align: left">Study In United State
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div style="margin-top: 15%"></div>
+                                        <div class="container_my">
+                                            <div class="img">
+                                                <a onclick="study('study/australia')" style="cursor: pointer;">
+                                                    <img src="assets/images/Australia.png" alt="Avatar" class="image" style="width:100%">
+                                                    <div class="middle">
+                                                        <div style="padding: 1%"> Australia has the third highest number of international students in the world behind only the United Kingdom.</div>
+                                                    </div>
+                                                    <div class="desc" style="padding-left: 14%;text-align: left">Study In Australia
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="container_my">
+                                            <div class="img">
+                                                <a onclick="study('study/newzealand')" style="cursor: pointer;">
+                                                    <img src="assets/images/new_zealand.png" alt="Avatar" class="image" style="width:100%">
+                                                    <div class="middle">
+                                                        <div style="padding: 1%">  Every new day in the world starts in New Zealand. Nepali students choose NZ as their preferred destination to study.</div>
+                                                    </div>
+                                                    <div class="desc" style="padding-left: 14%;text-align: left">Study In New Zealand
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div style="margin-top: 15%"></div>
+                                        <div class="container_my">
+                                            <div class="img">
+                                                <a onclick="study('study/europe')" style="cursor: pointer;">
+                                                    <img src="assets/images/no_image.jpg" alt="Avatar" class="image" style="width:100%">
+                                                    <div class="middle">
+                                                        <div style="padding: 1%"> No text</div>
+                                                    </div>
+                                                    <div class="desc" style="padding-left: 14%;text-align: left">Study In Europe
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
+        <div class="col-lg-1"></div>
     </div>
-    <div class="col-lg-1"></div>
-</div>
-<!-- /.row -->
+    <!-- /.row -->
 
-<!-- Portfolio Section -->
+    <!-- Portfolio Section -->
     <div class="row" style="background-color:#F7F6F0 ">
         <div class="col-lg-12" style="color:#666; text-align:center">
             <h2 class="page-header1" style="color: #666">Our Certification<div class="head_line"></div></h2>
 
         </div>
 
-        <div class="col-lg-1"></div>
-        <div id="jssor_1" style="position:relative;margin:0 auto;top:0px;left:0px;width:980px;height:200px;overflow:hidden;visibility:hidden;">
+
+        <div id="jssor_1" style="position:relative;margin:0 auto;top:0px;left:0px;width:980px;height:200px;overflow:hidden;visibility:hidden;align:center">
 
             <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:980px;height:100px;overflow:hidden;">
                 @foreach($certification as $crt)
@@ -331,15 +331,15 @@
         <div class="col-lg-1"></div>
 
     </div>
-<!-- /.row -->
+    <!-- /.row -->
 
-<!-- Features Section -->
+    <!-- Features Section -->
     <div class="row">
         <div class="col-lg-12 divPadding" style="text-align:center" id="company_feature">
             <h2 class="page-header1">Our Services</h2>
             <div class="head_line"></div>
         </div>
-        <div class="col-md-4 col-lg-offset-1">
+        <div class="col-md-3 col-lg-offset-1">
 
             <div class="panel panel-default">
                 <div class="panel-body">
@@ -351,8 +351,7 @@
                     <li><a href="#"  data-toggle="modal" data-target="#pointModal">Guaranteed scholarships for deserving students</a></li>
                     <li><a href="#"  data-toggle="modal" data-target="#pointModal">Guaranteed scholarships for deserving students</a></li>
                     <li><a href="#"  data-toggle="modal" data-target="#pointModal">Guaranteed scholarships for deserving students</a></li>
-                    <li><a href="#"  data-toggle="modal" data-target="#pointModal">Guaranteed scholarships for deserving students</a></li>
-                    <li><a href="#"  data-toggle="modal" data-target="#pointModal">Guaranteed scholarships for deserving students</a></li>
+
                 </div>
 
                 <!--</div>-->
@@ -441,56 +440,59 @@
 
     </div>
 
-<hr>
-<div id='browser'>
-    <div id='content'>
-        <div id='left'>
-            <div id='map'>
+    <hr>
+    <div id='browser'>
+        <div id='content'>
+            <div id='left'>
+                <div id='map'>
 
-                <!--<p>Where To Find Us</p>-->
-                <!--<div class='map-locator'>-->
-                <!--<div class='tooltip'>-->
-                <!--<ul>-->
-                <!--<li>-->
-                <!--<span class='entypo-location'></span>-->
-                <!--<span class='selectedLocation'>Nepal</span>-->
-                <!--</li>-->
-                <!--<li>-->
-                <!--<span class='entypo-mail'></span>-->
-            <!--<a href='#'>sharma.parshuram1990@gmail.com</a>-->
-                <!--</li>-->
-                <!--<li>-->
-                <!--<span class='entypo-phone'></span>-->
-                <!--+977-9841095697-->
-                <!--</li>-->
-                <!--</ul>-->
-                <!--</div>-->
-                <!--</div>-->
-                <div class='zoom'></div>
-            </div>
-
-        </div>
-        <div id='right'>
-            <p>Connect</p>
-            <div id='social'>
+                    <!--<p>Where To Find Us</p>-->
+                    <!--<div class='map-locator'>-->
+                    <!--<div class='tooltip'>-->
+                    <!--<ul>-->
+                    <!--<li>-->
+                    <!--<span class='entypo-location'></span>-->
+                    <!--<span class='selectedLocation'>Nepal</span>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                    <!--<span class='entypo-mail'></span>-->
+                <!--<a href='#'>sharma.parshuram1990@gmail.com</a>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                    <!--<span class='entypo-phone'></span>-->
+                    <!--+977-9841095697-->
+                    <!--</li>-->
+                    <!--</ul>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <div class='zoom'></div>
+                </div>
 
             </div>
-            <form id="mailform">
-                <p>Get in Contact</p>
-                {{--<input placeholder='Email' type='email'>--}}
-                <input placeholder='Subject' type='text' name="subject" id="mailSubject">
-                <textarea placeholder='Message' rows='4' name="message" id="mailMessage"></textarea>
-                <input placeholder='Send' type='submit' style="display: none;">
-                <a style="cursor: pointer;" class="btn btn-default" onclick="sendMail();">Submit</a>
-            </form>
-            <p>other way</p>
-            <p class='other entypo-mail'>
-                <a href='#'>sharma.parshuram1990@gmail.com</a>
-            </p>
-            <p class='other entypo-phone'>+977-9841095697</p>
+            <div id='right' style="color:#fff;">
+                <p>Connect</p>
+                <div id='social'>
+
+                </div>
+                <form id="mailform">
+                    <p>Get in Contact</p>
+                    {{--<input placeholder='Email' type='email'>--}}
+                    <div class="bfh-selectbox bfh-countries" data-country="US" data-flags="true">
+                    </div>
+                    <input placeholder='Phone no' type='text' name="phone" id="mailPhone" style="background-color:#fff;">
+                    <input placeholder='Subject' type='text' name="subject" id="mailSubject"style="background-color:#fff;">
+                    <textarea placeholder='Message' rows='4' name="message" id="mailMessage" style="background-color:#fff;"></textarea>
+                    <input placeholder='Send' type='submit' style="display: none;">
+                    <a style="cursor: pointer;" class="btn btn-default" onclick="sendMail();">Submit</a>
+                </form>
+                <p>other way</p>
+                <p class='other entypo-mail'style="color:#fff;">
+                    <a href='#' style="color:#fff;">info@globalhr.edu.np</a>
+                </p>
+                <p class='other entypo-phone' style="color:#fff;">+977-1-4233140 / 4239302</p>
+            </div>
         </div>
     </div>
-</div>
 </div>
 @include('footer')
 <script src="assets/js/jquery.js"></script>
@@ -509,28 +511,28 @@
     })
     function scrollDownAboutUs() {
         $('html,body').animate({
-                scrollTop: $(this.aboutus).offset().top
-            },
-            'slow');
+                    scrollTop: $(this.aboutus).offset().top
+                },
+                'slow');
     }
 
     function scrollDownCompanuFeature() {
         $('html,body').animate({
-                scrollTop: $(this.company_feature).offset().top
-            },
-            'slow');
+                    scrollTop: $(this.company_feature).offset().top
+                },
+                'slow');
     }
     function scrollDownContact() {
         $('html,body').animate({
-                scrollTop: $(this.browser).offset().top
-            },
-            'slow');
+                    scrollTop: $(this.browser).offset().top
+                },
+                'slow');
     }
     function scrollUpHome() {
         $('html,body').animate({
-                scrollTop: 0
-            },
-            'slow');
+                    scrollTop: 0
+                },
+                'slow');
     }
 </script>
 
@@ -568,6 +570,40 @@
         });
     }
 
+
+    function sendMail() {
+        if ($.trim($("#mailSubject").val()) == "")
+            $("#mailSubject").css("border","1px solid red");
+        else
+            $("#mailSubject").css("border","none");
+        if ($.trim($("#mailMessage").val()) == "")
+            $("#mailMessage").css("border","1px solid red");
+        else
+            $("#mailMessage").css("border","none");
+        if ($.trim($("#mailSubject").val()) == "" || $.trim($("#mailMessage").val()) == "")
+            return false;
+
+        var data = $("#mailform").serialize();
+        $.ajax({
+            url:'/mail',
+            method:'get',
+            data:data,
+            success:function () {
+                bootbox.alert('Your message was successfully sent');
+            },
+            error:function () {
+                bootbox.alert('Error sending message try again');
+            }
+        });
+    }
+</script>
+<script src="assets/js/jssor.slider-22.2.6.mini.js" type="text/javascript"></script>
+<script src="assets/js/jssor.slider-22.2.6.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function ($) {
+        jssor_0_slider_init();
+        jssor_1_slider_init();
+    });
     function loadHome(menu) {
         $.ajax({
             url:'/index',
@@ -604,44 +640,12 @@
             }
         });
     }
-    function sendMail() {
-        if ($.trim($("#mailSubject").val()) == "")
-            $("#mailSubject").css("border","1px solid red");
-        else
-            $("#mailSubject").css("border","none");
-        if ($.trim($("#mailMessage").val()) == "")
-            $("#mailMessage").css("border","1px solid red");
-        else
-            $("#mailMessage").css("border","none");
-        if ($.trim($("#mailSubject").val()) == "" || $.trim($("#mailMessage").val()) == "")
-            return false;
-
-        var data = $("#mailform").serialize();
-        $.ajax({
-            url:'/mail',
-            method:'get',
-            data:data,
-            success:function () {
-                bootbox.alert('Your message was successfully sent');
-            },
-            error:function () {
-                bootbox.alert('Error sending message try again');
-            }
-        });
-    }
-</script>
-<script src="assets/js/jssor.slider-22.2.6.mini.js" type="text/javascript"></script>
-<script src="assets/js/jssor.slider-22.2.6.min.js" type="text/javascript"></script>
-<script type="text/javascript">
-    jQuery(document).ready(function ($) {
-        jssor_0_slider_init();
-        jssor_1_slider_init();
-        /*responsive code end*/
-    });
 </script>
 <script type="text/javascript">
+    var jssor_0_slider;
+    var jssor_1_slider;
     jssor_0_slider_init = function () {
-        var jssor_1_options = {
+        var jssor_0_options = {
             $AutoPlay: true,
             $Idle: 0,
             $AutoPlaySteps: 4,
@@ -652,21 +656,21 @@
             $Cols: 7
         };
 
-        var jssor_1_slider = new $JssorSlider$("jssor_1", jssor_1_options);
+        jssor_0_slider = new $JssorSlider$("jssor_1", jssor_0_options);
 
         /*responsive code begin*/
         /*you can remove responsive code if you don't want the slider scales while window resizing*/
         function ScaleSlider() {
-            var refSize = jssor_1_slider.$Elmt.parentNode.clientWidth;
+            var refSize = jssor_0_slider.$Elmt.parentNode.clientWidth;
             if (refSize) {
-                refSize = Math.min(refSize, 809);
-                jssor_1_slider.$ScaleWidth(refSize);
+                refSize = Math.min(refSize, 810);
+                jssor_0_slider.$ScaleWidth(refSize);
             }
             else {
                 window.setTimeout(ScaleSlider, 30);
             }
         }
-        ScaleSlider();
+//        ScaleSlider();
         $(window).bind("load", ScaleSlider);
         $(window).bind("resize", ScaleSlider);
         $(window).bind("orientationchange", ScaleSlider);
@@ -688,26 +692,28 @@
             }
         };
 
-        var jssor_1_slider = new $JssorSlider$("jssor_2", jssor_1_options);
+        jssor_1_slider = new $JssorSlider$("jssor_2", jssor_1_options);
 
         /*responsive code begin*/
         /*you can remove responsive code if you don't want the slider scales while window resizing*/
         function ScaleSlider() {
             var refSize = jssor_1_slider.$Elmt.parentNode.clientWidth;
             if (refSize) {
-                refSize = Math.min(refSize, 810);
+                refSize = Math.min(refSize, 809);
                 jssor_1_slider.$ScaleWidth(refSize);
             }
             else {
                 window.setTimeout(ScaleSlider, 30);
             }
         }
-        ScaleSlider();
+//        ScaleSlider();
         $Jssor$.$AddEvent(window, "load", ScaleSlider);
         $Jssor$.$AddEvent(window, "resize", ScaleSlider);
         $Jssor$.$AddEvent(window, "orientationchange", ScaleSlider);
         /*responsive code end*/
     };
+    jssor_0_slider_init();
+    jssor_1_slider_init();
 </script>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZL5YdXuEIRgO6G4eUH1rBHOfYhy0rmMk&callback=myMap"></script>

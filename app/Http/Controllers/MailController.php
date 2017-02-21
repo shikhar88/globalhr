@@ -16,12 +16,14 @@ class MailController extends Controller
             $subject =$_GET['subject'];
         if(isset($_GET['message']))
             $msg =$_GET['message'];
+        if(isset($_GET['phone']))
+            $phone =$_GET['phone'];
 //        $to_email = 'basnet.shikhar@gmail.com';
 //        Mail::to($to_email)->send(new SendMail());
         $data = array('subject'=>$subject ,'email' => 'sharma.parshuram1990@gmail.com ', 'first_name' => 'GLOBALHR', 'from' => 'sitemail.globalhr@gmail.com', 'from_name' => 'globalhr' );
 
         try{
-        Mail::send( 'mail', ['data'=>$msg], function( $message ) use ($data)
+        Mail::send( 'mail', ['data'=>$msg,'phone'=>$phone], function( $message ) use ($data)
             {
                 $message->to( $data['email'] )->from( $data['from'], $data['first_name'] )->subject($data['subject']);
             });

@@ -50,6 +50,7 @@
     <link rel="stylesheet" href="../assets/css/print.css" type="text/css" media="print"/>
     <!-- end: CORE CSS -->
     <link rel="shortcut icon" href="favicon.ico" />
+    @yield('css')
 </head>
 <!-- end: HEAD -->
 <!-- start: BODY -->
@@ -79,6 +80,11 @@
                             <img src="../assets/images/avatar-1-small.jpg" class="img-circle" alt=""> <span class="username hidden-xs">Admin User</span> <i class="fa fa-caret-down "></i>
                         </a>
                         <ul class="dropdown-menu dropdown-dark">
+                            <li>
+                                <a href="/admin/passwordchange">
+                                    Change password
+                                </a>
+                            </li>
                             <li>
                                 <a href="/logout">
                                     Log Out
@@ -191,7 +197,7 @@
 <script src="../assets/plugins/moment/min/moment.min.js"></script>
 <script src="../assets/plugins/perfect-scrollbar/src/jquery.mousewheel.js"></script>
 <script src="../assets/plugins/perfect-scrollbar/src/perfect-scrollbar.js"></script>
-<script src="../assets/plugins/bootbox/bootbox.min.js"></script>
+<script src="../assets/plugins/bootbox/bootbox.js"></script>
 <script src="../assets/plugins/jquery.scrollTo/jquery.scrollTo.min.js"></script>
 <script src="../assets/plugins/ScrollToFixed/jquery-scrolltofixed-min.js"></script>
 <script src="../assets/plugins/jquery.appear/jquery.appear.js"></script>
@@ -229,15 +235,18 @@
 <script src="../assets/plugins/jquery.sparkline/jquery.sparkline.js"></script>
 {{--<script src="../assets/plugins/easy-pie-chart/dist/jquery.easypiechart.min.js"></script>--}}
 <script src="../assets/js/index.js"></script>
+
 <!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
 <!-- start: CORE JAVASCRIPTS  -->
 <script src="../assets/js/main.js"></script>
+
 <!-- end: CORE JAVASCRIPTS  -->
 
 @yield('javascript')
 <script>
     jQuery(document).ready(function() {
         Main.init();
+
 //        SVExamples.init();
 //        Index.init();
     });

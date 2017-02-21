@@ -221,8 +221,8 @@ var FormValidator = function () {
         $('#form2 .summernote').summernote({
             height: 300
         });
-        CKEDITOR.disableAutoInline = true;
-        $('textarea.ckeditor').ckeditor();
+        // CKEDITOR.disableAutoInline = true;
+        // $('textarea.ckeditor').ckeditor();
     };
     return {
         //main function to initiate template pages

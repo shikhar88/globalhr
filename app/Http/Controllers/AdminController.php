@@ -217,5 +217,11 @@ class AdminController extends Controller
             ;
     }
 
+    public function password(){
+        $logo = Images::where('type','logo')->get()->first();
+        return view('admin.password')->with('logo',$logo->path)
+            ;
+    }
+
 
 }
