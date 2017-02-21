@@ -152,10 +152,16 @@
                         <a href="/admin/aboutus"><i class="fa fa-bar-chart-o"></i> <span class="title">About us</span> </a>
                     </li>
                     <li>
-                        <a href="/admin/study"><i class="fa fa-bar-chart-o"></i> <span class="title">Study abroad</span> </a>
+                        <a href="/admin/study"><i class="fa fa-bar-chart-o"></i> <span class="title">Study abroad content</span> </a>
+                    </li>
+                    <li>
+                        <a href="/admin/studyimage"><i class="fa fa-bar-chart-o"></i> <span class="title">Study abroad images</span> </a>
                     </li>
                     <li>
                         <a href="/admin/logo"><i class="fa fa-bar-chart-o"></i> <span class="title">Logo & Certification</span> </a>
+                    </li>
+                    <li>
+                        <a href="/admin/services"><i class="fa fa-bar-chart-o"></i> <span class="title">Service setting</span> </a>
                     </li>
                 </ul>
                 <!-- end: MAIN NAVIGATION MENU -->

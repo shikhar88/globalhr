@@ -9,6 +9,7 @@
 namespace App\Http\Controllers;
 use App\Content;
 use App\Images;
+use App\Services;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Auth;
 
@@ -129,6 +130,20 @@ class AdminController extends Controller
                 ->with('logo',$logo->path);
     }
 
+    public function studyimage(){
+        $logo = Images::where('type','logo')->get()->first();
+        $usaimage = Images::where('type','usaimage')->get()->first();
+        $europeimage = Images::where('type','europeimage')->get()->first();
+        $australiaimage = Images::where('type','australiaimage')->get()->first();
+        $newzelandimage = Images::where('type','newzelandimage')->get()->first();
+        return view('admin.studyimage')
+            ->with('logo',$logo->path)
+            ->with('usaimage',$usaimage->path)
+            ->with('europeimage',$europeimage->path)
+            ->with('australiaimage',$australiaimage->path)
+            ->with('newzelandimage',$newzelandimage->path);
+    }
+
 
     public function savestudy(){
         $usa = Input::get('usa');
@@ -143,6 +158,101 @@ class AdminController extends Controller
             ->update(['value'=>$nwz]);
         Content::where('type','europe')
             ->update(['value'=>$eur]);
+    }
+
+    public function savestudyimage(){
+        $data=Input::all();
+        if(isset($data['usaimage'])){
+            $img = Images::where('type','usaimage')->get()->first();
+            try{
+                unlink(public_path().$img->path);
+            }
+            catch(\ErrorException $e){
+
+            }
+            Images::destroy($img->id);
+            $extension=$data['usaimage']->guessExtension();
+            $filename='usaimage'.'.'.$extension;
+            if($data['usaimage']->move(public_path().'/uploads/studyimage/',$filename))
+            {
+                $img = new Images();
+                $img->type = 'usaimage';
+                $img->path ='/uploads/studyimage/'.$filename;
+                $img->active = '1';
+                $img->save();
+            }
+        }
+        if(isset($data['australiaimage'])){
+            $img = Images::where('type','australiaimage')->get()->first();
+            try{
+                unlink(public_path().$img->path);
+            }
+            catch(\ErrorException $e){
+
+            }
+            Images::destroy($img->id);
+            $extension=$data['australiaimage']->guessExtension();
+            $filename='australiaimage'.'.'.$extension;
+            if($data['australiaimage']->move(public_path().'/uploads/studyimage/',$filename))
+            {
+                $img = new Images();
+                $img->type = 'australiaimage';
+                $img->path ='/uploads/studyimage/'.$filename;
+                $img->active = '1';
+                $img->save();
+            }
+        }
+        if(isset($data['newzelandimage'])){
+            $img = Images::where('type','newzelandimage')->get()->first();
+            try{
+                unlink(public_path().$img->path);
+            }
+            catch(\ErrorException $e){
+
+            }
+            Images::destroy($img->id);
+            $extension=$data['newzelandimage']->guessExtension();
+            $filename='newzelandimage'.'.'.$extension;
+            if($data['newzelandimage']->move(public_path().'/uploads/studyimage/',$filename))
+            {
+                $img = new Images();
+                $img->type = 'newzelandimage';
+                $img->path ='/uploads/studyimage/'.$filename;
+                $img->active = '1';
+                $img->save();
+            }
+        }
+        if(isset($data['europeimage'])){
+            $img = Images::where('type','europeimage')->get()->first();
+            try{
+                unlink(public_path().$img->path);
+            }
+            catch(\ErrorException $e){
+
+            }
+            Images::destroy($img->id);
+            $extension=$data['europeimage']->guessExtension();
+            $filename='europeimage'.'.'.$extension;
+            if($data['europeimage']->move(public_path().'/uploads/studyimage/',$filename))
+            {
+                $img = new Images();
+                $img->type = 'europeimage';
+                $img->path ='/uploads/studyimage/'.$filename;
+                $img->active = '1';
+                $img->save();
+            }
+        }
+        $logo = Images::where('type','logo')->get()->first();
+        $usaimage = Images::where('type','usaimage')->get()->first();
+        $europeimage = Images::where('type','europeimage')->get()->first();
+        $australiaimage = Images::where('type','australiaimage')->get()->first();
+        $newzelandimage = Images::where('type','newzelandimage')->get()->first();
+        return view('admin.studyimage')
+            ->with('logo',$logo->path)
+            ->with('usaimage',$usaimage->path)
+            ->with('europeimage',$europeimage->path)
+            ->with('australiaimage',$australiaimage->path)
+            ->with('newzelandimage',$newzelandimage->path);
     }
 
     public function logo() {
@@ -234,6 +344,39 @@ class AdminController extends Controller
         else{
 
         }
+    }
+
+
+    public function services(){
+        $logo = Images::where('type','logo')->get()->first();
+        $serviceslides = Services::where('type','slide')->get();
+        if($serviceslides)
+            $serviceslide = json_decode($serviceslides);
+        else
+            $serviceslide = null;
+        return view('admin.services')->with('logo',$logo->path)
+            ->with('serviceslide',$serviceslide)
+            ;
+    }
+
+    public function saveservices(){
+        $data=Input::all();
+        $content = array();
+        $content['name'] = $data['name'];
+        $content['position'] = $data['position'];
+        $content['content'] = $data['content'];
+        if(isset($data['thumbnailimage'])){
+            $extension=$data['thumbnailimage']->guessExtension();
+            $filename='logo'.'.'.$extension;
+            if($data['thumbnailimage']->move(public_path().'/uploads/servicethumb/',$filename))
+            {
+                $content['thumbnail'] = '/uploads/servicethumb/'.$filename;
+            }
+        }
+        $services = new Services();
+        $services->type = 'slide';
+        $services->value = json_encode($content);
+        $services->save();
     }
 
 

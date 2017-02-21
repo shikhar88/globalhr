@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Content;
 use App\Images;
+use App\Services;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -18,12 +19,29 @@ class HomeController extends Controller
        $companydetails = json_decode($companydet->value);
        $logo = Images::where('type','logo')->get()->first();
        $certification = Images::where('type','certification')->get();
+       $usaimage = Images::where('type','usaimage')->get()->first();
+       $europeimage = Images::where('type','europeimage')->get()->first();
+       $australiaimage = Images::where('type','australiaimage')->get()->first();
+       $newzelandimage = Images::where('type','newzelandimage')->get()->first();
+       $serviceslides = Services::where('type','slide')->get();
+       $serviceslide = array();
+       if($serviceslides)
+           foreach ($serviceslides as $key=>$value){
+               $serviceslide[$key] = json_decode($value->value);
+           }
+       else
+           $serviceslide = null;
        return view('homepage')
            ->with('aboutus',$aboutus[0]->value)
            ->with('banner',$banner)
            ->with('comapnydetail',$companydetails)
            ->with('logo',$logo->path)
            ->with('certification',$certification)
+           ->with('usaimage',$usaimage->path)
+           ->with('europeimage',$europeimage->path)
+           ->with('australiaimage',$australiaimage->path)
+           ->with('newzelandimage',$newzelandimage->path)
+           ->with('serviceslide',$serviceslide)
            ;
    }
 
@@ -32,6 +50,15 @@ class HomeController extends Controller
        $banner = Images::where('active','1')
            ->where('type','banner')->get();
        $certification = Images::where('type','certification')->get();
+       $usaimage = Images::where('type','usaimage')->get()->first();
+       $europeimage = Images::where('type','europeimage')->get()->first();
+       $australiaimage = Images::where('type','australiaimage')->get()->first();
+       $newzelandimage = Images::where('type','newzelandimage')->get()->first();
+       $serviceslides = Services::where('type','slide')->get();
+       if($serviceslides)
+           $serviceslide = json_decode($serviceslides);
+       else
+           $serviceslide = null;
        if($banner){
            $banner[0]->class ='active';
        }
@@ -39,6 +66,11 @@ class HomeController extends Controller
            ->with('aboutus',$aboutus[0]->value)
            ->with('banner',$banner)
            ->with('certification',$certification)
+           ->with('usaimage',$usaimage->path)
+           ->with('europeimage',$europeimage->path)
+           ->with('australiaimage',$australiaimage->path)
+           ->with('newzelandimage',$newzelandimage->path)
+           ->with('serviceslide',$serviceslide)
            ;
    }
    public function abroad($country){

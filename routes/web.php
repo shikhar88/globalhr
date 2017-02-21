@@ -26,9 +26,13 @@ Route::group(['middleware'=>['auth']], function(){
     Route::post('/admin/banner','AdminController@bannersave');
     Route::get('/admin/companydetail','AdminController@companydetail');
     Route::get('/admin/study','AdminController@study');
+    Route::get('/admin/studyimage','AdminController@studyimage');
     Route::post('/admin/study','AdminController@savestudy');
+    Route::post('/admin/studyimage','AdminController@savestudyimage');
     Route::get('/admin/logo','AdminController@logo');
     Route::post('/admin/logo','AdminController@logosave');
     Route::get('/admin/passwordchange','AdminController@password');
     Route::post('/admin/passwordchange','AdminController@savepassword');
+    Route::get('/admin/services','AdminController@services');
+    Route::post('/admin/services','AdminController@saveservices');
 });
