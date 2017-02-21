@@ -55,8 +55,11 @@ class HomeController extends Controller
        $australiaimage = Images::where('type','australiaimage')->get()->first();
        $newzelandimage = Images::where('type','newzelandimage')->get()->first();
        $serviceslides = Services::where('type','slide')->get();
+       $serviceslide = array();
        if($serviceslides)
-           $serviceslide = json_decode($serviceslides);
+           foreach ($serviceslides as $key=>$value){
+               $serviceslide[$key] = json_decode($value->value);
+           }
        else
            $serviceslide = null;
        if($banner){

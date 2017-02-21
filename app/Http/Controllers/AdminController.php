@@ -350,8 +350,13 @@ class AdminController extends Controller
     public function services(){
         $logo = Images::where('type','logo')->get()->first();
         $serviceslides = Services::where('type','slide')->get();
+        $serviceslide = array();
         if($serviceslides)
-            $serviceslide = json_decode($serviceslides);
+            foreach ($serviceslides as $key=>$value){
+                $data = json_decode($value->value);
+                $data->id = $value->id;
+                $serviceslide[$key] = $data;
+            }
         else
             $serviceslide = null;
         return view('admin.services')->with('logo',$logo->path)
@@ -377,6 +382,18 @@ class AdminController extends Controller
         $services->type = 'slide';
         $services->value = json_encode($content);
         $services->save();
+        $logo = Images::where('type','logo')->get()->first();
+        $serviceslides = Services::where('type','slide')->get();
+        $serviceslide = array();
+        if($serviceslides)
+            foreach ($serviceslides as $key=>$value){
+                $serviceslide[$key] = json_decode($value->value);
+            }
+        else
+            $serviceslide = null;
+        return view('admin.services')->with('logo',$logo->path)
+            ->with('serviceslide',$serviceslide)
+            ;
     }
 
 

@@ -57,49 +57,70 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="panel-body">
-                            <div class="panel-group accordion" id="accordion">
-                                <div class="panel panel-white">
-                                    <div class="panel-heading">
-                                        <h5 class="panel-title">
-                                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-                                                <i class="icon-arrow"></i> Collapsible Group Item #1
-                                            </a></h5>
-                                    </div>
-                                    <div id="collapseOne" class="panel-collapse collapse in">
-                                        <div class="panel-body">
-                                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                        @foreach($serviceslide as $key=>$service)
+                            <div class="panel-body">
+                                <div class="panel-group accordion" id="accordion">
+                                    <div class="panel panel-white">
+                                        <div class="panel-heading">
+                                            <h5 class="panel-title">
+                                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse{{$key}}">
+                                                    <i class="icon-arrow"></i> Collapsible Group Item #1
+                                                </a></h5>
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="panel panel-white">
-                                    <div class="panel-heading">
-                                        <h5 class="panel-title">
-                                            <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-                                                <i class="icon-arrow"></i> Collapsible Group Item #2
-                                            </a></h5>
-                                    </div>
-                                    <div id="collapseTwo" class="panel-collapse collapse">
-                                        <div class="panel-body">
-                                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="panel panel-white">
-                                    <div class="panel-heading">
-                                        <h5 class="panel-title">
-                                            <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
-                                                <i class="icon-arrow"></i> Collapsible Group Item #3
-                                            </a></h5>
-                                    </div>
-                                    <div id="collapseThree" class="panel-collapse collapse">
-                                        <div class="panel-body">
-                                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                        <div id="collapse{{$key}}" class="panel-collapse collapse in">
+                                            <div class="panel-body">
+                                                <div class="form-group">
+                                                    <label class="col-sm-2 control-label">
+                                                        Name
+                                                    </label>
+                                                    <div class="col-sm-6">
+													    {{$service->name}}
+                                                    </div>
+                                                    <div class="col-sm-4">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-2 control-label">
+                                                        Position
+                                                    </label>
+                                                    <div class="col-sm-6">
+                                                        {{$service->position}}
+                                                    </div>
+                                                    <div class="col-sm-4">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-2 control-label">
+                                                        Thumbnail
+                                                    </label>
+                                                    <div class="col-sm-6">
+                                                        <img class="i" src={{$service->thumbnail}} />
+                                                    </div>
+                                                    <div class="col-sm-4">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-2 control-label">
+                                                        Content
+                                                    </label>
+                                                    <div class="col-sm-6">
+                                                        {!! $service->content !!}
+                                                    </div>
+                                                    <div class="col-sm-4">
+                                                    </div>
+                                                </div>
+                                                <a href="#responsivenew" data-toggle="modal" class="demo btn btn-blue" onclick="feeddata({{$key}});tinymcestart();">
+                                                    Edit
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        @endforeach
                     </div>
                     <!-- end: ACCORDION PANEL -->
                 </div>
@@ -170,6 +191,64 @@
             </div>
         </div>
     </div>
+    <div id="responsivenew" class="modal extended-modal fade no-display" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title">Add new detail</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <form method="post" action="/admin/services" enctype="multipart/form-data" id="serviceform">
+                                <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
+                                <p>
+                                    <input class="form-control" type="text" placeholder="Name" name="name" id="servicename">
+                                </p>
+                                <p>
+                                    <input class="form-control" type="text" placeholder="position" name="position" id="servicepos">
+                                </p>
+
+                                <div class="fileupload fileupload-new" data-provides="fileupload">
+                                    <div class="fileupload-new thumbnail" ><img id="serviceimg"
+                                                src="" alt=""/>
+                                    </div>
+                                    <div class="fileupload-preview fileupload-exists thumbnail"></div>
+                                    <div>
+
+                                    <span class="btn btn-light-grey btn-file">
+                                                                <span
+                                                                        class="fileupload-new"><i
+                                                                            class="fa fa-picture-o"></i> Select image</span>
+                                                                <span
+                                                                        class="fileupload-exists"><i
+                                                                            class="fa fa-picture-o"></i> Change</span>
+																<input type="file" name="thumbnailimage" id="testssadf">
+															</span>
+                                        <a href="#" class="btn fileupload-exists btn-light-grey" data-dismiss="fileupload">
+                                            <i class="fa fa-times"></i> Remove
+                                        </a>
+                                    </div>
+                                </div>
+                                <textarea name="content" rows=16 id="template_contents" class="servicecontent form-control tinymce"></textarea>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" data-dismiss="modal" class="btn btn-light-grey">
+                        Close
+                    </button>
+                    <button type="button" class="btn btn-blue" onclick="submitform();">
+                        Add
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
 
 @section('javascript')
@@ -218,6 +297,15 @@
 
        function submitform() {
            $("#serviceform").submit();
+       }
+
+       function feeddata(key) {
+           console.log(key);
+           console.log({{$serviceslide[]->name}});
+           {{--$(".modal-body #servicename").val({{$serviceslide[key]->name}});--}}
+           {{--$(".modal-body #servicepos").val({{$serviceslide[key]->position}});--}}
+           {{--$(".modal-body #serviceimg").attr('img',"{{$serviceslide[key]->thumbnail}}");--}}
+           {{--$(".modal-body .servicecontent").val({{$serviceslide[key]->content}});--}}
        }
     </script>
 @endsection
