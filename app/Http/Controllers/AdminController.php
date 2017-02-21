@@ -223,5 +223,18 @@ class AdminController extends Controller
             ;
     }
 
+    public function savepassword(){
+        $credentials = ['username' => Auth::user()->username, 'password' => Input::get('oldPassword')];
+        dd(Input::get('password'));
+        if (Auth::validate($credentials)) {
+            $user = Auth::user();
+            $user->password = Input::get('password');
+            $user->save();
+        }
+        else{
+
+        }
+    }
+
 
 }

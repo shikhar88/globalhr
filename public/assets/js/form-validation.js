@@ -46,12 +46,12 @@ var FormValidator = function () {
                     email: true
                 },
                 password: {
-                    minlength: 6,
+                    minlength: 7,
                     required: true
                 },
                 password_again: {
                     required: true,
-                    minlength: 5,
+                    minlength: 7,
                     equalTo: "#password"
                 },
                 yyyy: "FullDate",
@@ -105,7 +105,7 @@ var FormValidator = function () {
                 successHandler1.show();
                 errorHandler1.hide();
                 // submit form
-                //$('#form').submit();
+                $('#form').submit();
             }
         });
     };
@@ -221,8 +221,8 @@ var FormValidator = function () {
         $('#form2 .summernote').summernote({
             height: 300
         });
-        // CKEDITOR.disableAutoInline = true;
-        // $('textarea.ckeditor').ckeditor();
+        CKEDITOR.disableAutoInline = true;
+        $('textarea.ckeditor').ckeditor();
     };
     return {
         //main function to initiate template pages

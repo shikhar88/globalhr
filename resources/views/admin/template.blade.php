@@ -246,9 +246,6 @@
 <script>
     jQuery(document).ready(function() {
         Main.init();
-
-//        SVExamples.init();
-//        Index.init();
     });
     function showToast(type,msg){
         toastr.options = {
