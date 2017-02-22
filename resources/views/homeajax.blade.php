@@ -34,7 +34,7 @@
 
         <div class="col-lg-12" style="text-align:center" id="aboutus">
             <h1 class="page-header1" style="margin-top: 3%">
-                Welcome to our company
+                {{$comapnydetail->topicfirst}}
             </h1>
             <div class="head_line"></div>
         </div>
@@ -46,10 +46,7 @@
                 <div class="panel panel-default">
 
                     <div class="panel-heading">
-                        <p style="text-align: center">Study In USA United States of America commonly known as USA is a
-                            country having migrants to try their luck from more than 150 countries! Study In Australia
-                            Australia has the third highest number of international students in the world behind only
-                            the United Kingdom. Study In New Zealand Every new day in the world</p>
+                        <p style="text-align: center">{{$comapnydetail->aboutcompany}}</p>
                     </div>
                 </div>
             </div>
@@ -115,9 +112,9 @@
                                             <a onclick="study('study/usa')" style="cursor: pointer;">
                                                 <img src="{{$usaimage}}" alt="Avatar" class="image" style="width:100%">
                                                 <div class="middle">
-                                                    <div style="padding: 1%"> United States of America commonly known as USA is a country having migrants to try their luck from more than 150 countries!</div>
+                                                    <div style="padding: 1%">{{$detail->descfirst}}</div>
                                                 </div>
-                                                <div class="desc" style="padding-left: 14%;text-align: left">Study In United State
+                                                <div class="desc" style="padding-left: 14%;text-align: left">{{$detail->titlefirst}}
                                                 </div>
                                             </a>
                                         </div>
@@ -128,9 +125,9 @@
                                             <a onclick="study('study/australia')" style="cursor: pointer;">
                                                 <img src="{{$australiaimage}}" alt="Avatar" class="image" style="width:100%">
                                                 <div class="middle">
-                                                    <div style="padding: 1%"> Australia has the third highest number of international students in the world behind only the United Kingdom.</div>
+                                                    <div style="padding: 1%">{{$detail->descsecond}}</div>
                                                 </div>
-                                                <div class="desc" style="padding-left: 14%;text-align: left">Study In Australia
+                                                <div class="desc" style="padding-left: 14%;text-align: left">{{$detail->titlesecond}}
                                                 </div>
                                             </a>
                                         </div>
@@ -142,9 +139,9 @@
                                             <a onclick="study('study/newzealand')" style="cursor: pointer;">
                                                 <img src="{{$newzelandimage}}" alt="Avatar" class="image" style="width:100%">
                                                 <div class="middle">
-                                                    <div style="padding: 1%">  Every new day in the world starts in New Zealand. Nepali students choose NZ as their preferred destination to study.</div>
+                                                    <div style="padding: 1%"> {{$detail->descthird}}</div>
                                                 </div>
-                                                <div class="desc" style="padding-left: 14%;text-align: left">Study In New Zealand
+                                                <div class="desc" style="padding-left: 14%;text-align: left">{{$detail->titlethird}}
                                                 </div>
                                             </a>
                                         </div>
@@ -155,9 +152,9 @@
                                             <a onclick="study('study/europe')" style="cursor: pointer;">
                                                 <img src="{{$europeimage}}" alt="Avatar" class="image" style="width:100%">
                                                 <div class="middle">
-                                                    <div style="padding: 1%"> No text</div>
+                                                    <div style="padding: 1%">{{$detail->descfourth}}</div>
                                                 </div>
-                                                <div class="desc" style="padding-left: 14%;text-align: left">Study In Europe
+                                                <div class="desc" style="padding-left: 14%;text-align: left">{{$detail->titlefourth}}
                                                 </div>
                                             </a>
                                         </div>
@@ -179,7 +176,7 @@
 <!-- Portfolio Section -->
 <div class="row" style="background-color:#F7F6F0 ">
     <div class="col-lg-12" style="color:#666; text-align:center">
-        <h2 class="page-header1" style="color: #666">Our Certification<div class="head_line"></div></h2>
+        <h2 class="page-header1" style="color: #666">{{$comapnydetail->topicsecond}}<div class="head_line"></div></h2>
 
     </div>
 
@@ -203,7 +200,7 @@
 <!-- Features Section -->
 <div class="row">
     <div class="col-lg-12 divPadding" style="text-align:center" id="company_feature">
-        <h2 class="page-header1">Our Services</h2>
+        <h2 class="page-header1">{{$comapnydetail->topicthird}}</h2>
         <div class="head_line"></div>
     </div>
     <div class="col-md-3 col-lg-offset-1">

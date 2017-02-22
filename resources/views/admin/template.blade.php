@@ -140,7 +140,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="/admin/companydetail"><i class="fa fa-bar-chart-o"></i> <span class="title">Company detail</span> </a>
+                        <a href="/admin/companydetail"><i class="fa fa-bar-chart-o"></i> <span class="title">Extra detail</span> </a>
                     </li>
                     <li>
                         <a href="/admin"><i class="fa fa-bar-chart-o"></i> <span class="title">Charts</span> </a>

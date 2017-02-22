@@ -49,11 +49,30 @@
                  <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
 
                     <div class="form-group">
-                        <div class="col-sm-12">
+                        <div class="col-sm-12" style="text-align: center">
                             <label>
-                               USA image
+                                <b style="font-size: 20px">{{$detail->titlefirst}}</b>
                             </label>
-                            <div class="fileupload fileupload-new" data-provides="fileupload">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">
+                                    Title
+                                </label>
+                                <div class="col-sm-10">
+													
+														<input type="text" placeholder="Title"  class="form-control" name="titlefirst" value="{{$detail->titlefirst}}">
+														
+                                </div>
+                            </div><br><br>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">
+                                    Short Description
+                                </label>
+                                <div class="col-sm-10">
+                                    <textarea maxlength="130" class="autosize form-control limited" id="form-field-24" name="descfirst">{{$detail->descfirst}}</textarea>
+                                </div>
+                            </div>
+
+                            <div class="fileupload fileupload-new" data-provides="fileupload" style="text-align: center">
                                 <div class="fileupload-new thumbnail" ><img
                                             src="{{$usaimage}}" alt=""/>
                                 </div>
@@ -77,11 +96,29 @@
                     </div>
 
                     <div class="form-group">
-                        <div class="col-sm-12">
+                        <div class="col-sm-12" style="text-align: center">
                             <label>
-                                Australia image
+                                <b style="font-size: 20px">{{$detail->titlesecond}}</b>
                             </label>
-                            <div class="fileupload fileupload-new" data-provides="fileupload">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">
+                                    Title
+                                </label>
+                                <div class="col-sm-10">
+													
+														<input type="text" placeholder="Title"  class="form-control" name="titlesecond" value="{{$detail->titlesecond}}">
+														
+                                </div>
+                            </div><br><br>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">
+                                    Short Description
+                                </label>
+                                <div class="col-sm-10">
+                                    <textarea maxlength="130" class="autosize form-control limited" id="form-field-24" name="descsecond">{{$detail->descsecond}}</textarea>
+                                </div>
+                            </div>
+                            <div class="fileupload fileupload-new" data-provides="fileupload" style="text-align: center">
                                 <div class="fileupload-new thumbnail" ><img
                                             src="{{$australiaimage}}" alt=""/>
                                 </div>
@@ -105,11 +142,29 @@
                     </div>
 
                     <div class="form-group">
-                        <div class="col-sm-12">
+                        <div class="col-sm-12" style="text-align: center">
                             <label>
-                                New Zeland image
+                                <b style="font-size: 20px">{{$detail->titlethird}}</b>
                             </label>
-                            <div class="fileupload fileupload-new" data-provides="fileupload">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">
+                                    Title
+                                </label>
+                                <div class="col-sm-10">
+													
+														<input type="text" placeholder="Title"  class="form-control" name="titlethird" value="{{$detail->titlethird}}">
+														
+                                </div>
+                            </div><br><br>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">
+                                    Short Description
+                                </label>
+                                <div class="col-sm-10">
+                                    <textarea maxlength="130" class="autosize form-control limited" id="form-field-24" name="descthird">{{$detail->descthird}}</textarea>
+                                </div>
+                            </div>
+                            <div class="fileupload fileupload-new" data-provides="fileupload" style="text-align: center">
                                 <div class="fileupload-new thumbnail" ><img
                                             src="{{$newzelandimage}}" alt=""/>
                                 </div>
@@ -133,11 +188,29 @@
                     </div>
 
                     <div class="form-group">
-                        <div class="col-sm-12">
+                        <div class="col-sm-12" style="text-align: center">
                             <label>
-                                Europe image
+                                <b style="font-size: 20px">{{$detail->titlefourth}}</b>
                             </label>
-                            <div class="fileupload fileupload-new" data-provides="fileupload">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">
+                                    Title
+                                </label>
+                                <div class="col-sm-10">
+													
+														<input type="text" placeholder="Title"  class="form-control" name="titlefourth" value="{{$detail->titlefourth}}">
+														
+                                </div>
+                            </div><br><br>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">
+                                    Short Description
+                                </label>
+                                <div class="col-sm-10">
+                                    <textarea maxlength="130" class="autosize form-control limited" id="form-field-24" name="descfourth">{{$detail->descfourth}}</textarea>
+                                </div>
+                            </div>
+                            <div class="fileupload fileupload-new" data-provides="fileupload" style="text-align: center">
                                 <div class="fileupload-new thumbnail" ><img
                                             src="{{$europeimage}}" alt=""/>
                                 </div>

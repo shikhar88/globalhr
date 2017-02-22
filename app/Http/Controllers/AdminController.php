@@ -122,11 +122,13 @@ class AdminController extends Controller
             $australia = Content::where('type','australia')->get()->first();
             $newzealand = Content::where('type','newzealand')->get()->first();
             $europe = Content::where('type','europe')->get()->first();
+            $detailcountry = Content::where('type','detailcountry')->get()->first();
             return view('admin.study')
                 ->with('usa',$usa->value)
                 ->with('aus',$australia->value)
                 ->with('nwz',$newzealand->value)
                 ->with('eur',$europe->value)
+                ->with('detail',json_decode($detailcountry->value))
                 ->with('logo',$logo->path);
     }
 
@@ -136,12 +138,14 @@ class AdminController extends Controller
         $europeimage = Images::where('type','europeimage')->get()->first();
         $australiaimage = Images::where('type','australiaimage')->get()->first();
         $newzelandimage = Images::where('type','newzelandimage')->get()->first();
+        $detailcountry = Content::where('type','detailcountry')->get()->first();
         return view('admin.studyimage')
             ->with('logo',$logo->path)
             ->with('usaimage',$usaimage->path)
             ->with('europeimage',$europeimage->path)
             ->with('australiaimage',$australiaimage->path)
-            ->with('newzelandimage',$newzelandimage->path);
+            ->with('newzelandimage',$newzelandimage->path)
+            ->with('detail',json_decode($detailcountry->value));
     }
 
 
@@ -162,6 +166,16 @@ class AdminController extends Controller
 
     public function savestudyimage(){
         $data=Input::all();
+        $detail = array();
+        $detail['titlefirst'] = $data['titlefirst'];
+        $detail['descfirst'] = $data['descfirst'];
+        $detail['titlesecond'] = $data['titlesecond'];
+        $detail['descsecond'] = $data['descsecond'];
+        $detail['titlethird'] = $data['titlethird'];
+        $detail['descthird'] = $data['descthird'];
+        $detail['titlefourth'] = $data['titlefourth'];
+        $detail['descfourth'] = $data['descfourth'];
+        Content::where('type','detailcountry')->update(['value'=>json_encode($detail)]);
         if(isset($data['usaimage'])){
             $img = Images::where('type','usaimage')->get()->first();
             try{
@@ -242,17 +256,8 @@ class AdminController extends Controller
                 $img->save();
             }
         }
-        $logo = Images::where('type','logo')->get()->first();
-        $usaimage = Images::where('type','usaimage')->get()->first();
-        $europeimage = Images::where('type','europeimage')->get()->first();
-        $australiaimage = Images::where('type','australiaimage')->get()->first();
-        $newzelandimage = Images::where('type','newzelandimage')->get()->first();
-        return view('admin.studyimage')
-            ->with('logo',$logo->path)
-            ->with('usaimage',$usaimage->path)
-            ->with('europeimage',$europeimage->path)
-            ->with('australiaimage',$australiaimage->path)
-            ->with('newzelandimage',$newzelandimage->path);
+        return redirect('/admin/studyimage')->with('success','Content has been added');
+
     }
 
     public function logo() {

@@ -57,6 +57,50 @@
                             <form role="form" class="form-horizontal" id="contactForm">
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label">
+                                        Title 1
+                                    </label>
+                                    <div class="col-sm-6">
+													<span class="input-icon">
+														<input type="text"  class="form-control" name="topicfirst" value="{{$data->topicfirst}}">
+														<i class="fa fa-user"></i> </span>
+                                    </div>
+                                    <div class="col-sm-4">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">
+                                        Title 2
+                                    </label>
+                                    <div class="col-sm-6">
+													<span class="input-icon">
+														<input type="text" class="form-control" name="topicsecond" value="{{$data->topicsecond}}">
+														<i class="fa fa-user"></i> </span>
+                                    </div>
+                                    <div class="col-sm-4">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">
+                                        Title 3
+                                    </label>
+                                    <div class="col-sm-6">
+													<span class="input-icon">
+														<input type="text" class="form-control" name="topicthird" value="{{$data->topicthird}}">
+														<i class="fa fa-user"></i> </span>
+                                    </div>
+                                    <div class="col-sm-4">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">
+                                        About the company
+                                    </label>
+                                    <div class="col-sm-6">
+                                        <textarea maxlength="320" class="autosize form-control limited" id="form-field-24" name="aboutcompany">{{$data->aboutcompany}}</textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">
                                         Location
                                     </label>
                                     <div class="col-sm-6">
@@ -102,14 +146,7 @@
                                     <div class="col-sm-4">
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label class="col-sm-2 control-label">
-                                        About the company
-                                    </label>
-                                    <div class="col-sm-6">
-                                        <textarea maxlength="320" class="autosize form-control limited" id="form-field-24" name="aboutcompany">{{$data->aboutcompany}}</textarea>
-                                    </div>
-                                </div>
+
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label">
                                        Facebook
