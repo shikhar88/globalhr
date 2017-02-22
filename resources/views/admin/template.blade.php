@@ -163,6 +163,9 @@
                     <li>
                         <a href="/admin/services"><i class="fa fa-bar-chart-o"></i> <span class="title">Service setting</span> </a>
                     </li>
+                    <li>
+                        <a href="/admin/help"><i class="fa fa-bar-chart-o"></i> <span class="title">How can we help</span> </a>
+                    </li>
                 </ul>
                 <!-- end: MAIN NAVIGATION MENU -->
             </div>
@@ -220,7 +223,7 @@
 <script src="../assets/plugins/fullcalendar/fullcalendar/fullcalendar.min.js"></script>
 <script src="../assets/plugins/bootstrap-switch/dist/js/bootstrap-switch.min.js"></script>
 <script src="../assets/plugins/bootstrap-select/bootstrap-select.min.js"></script>
-<script src="../assets/plugins/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="../assets/plugins/jquery-validation/dist/jquery.validate.js"></script>
 <script src="../assets/plugins/bootstrap-fileupload/bootstrap-fileupload.min.js"></script>
 {{--<script src="../assets/plugins/DataTables/media/js/jquery.dataTables.min.js"></script>--}}
 {{--<script src="../assets/plugins/DataTables/media/js/DT_bootstrap.js"></script>--}}
@@ -252,6 +255,12 @@
 <script>
     jQuery(document).ready(function() {
         Main.init();
+        @if(Session::has('success'))
+            showToast('success','{{Session::get('success')}}');
+        @endif
+        @if(Session::has('error'))
+            showToast('error','{{Session::get('error')}}');
+        @endif
     });
     function showToast(type,msg){
         toastr.options = {
@@ -270,7 +279,9 @@
         toastr[type](msg);
 
     }
+
 </script>
+
 </body>
 <!-- end: BODY -->
 </html>

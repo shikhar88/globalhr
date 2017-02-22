@@ -35,4 +35,6 @@ Route::group(['middleware'=>['auth']], function(){
     Route::post('/admin/passwordchange','AdminController@savepassword');
     Route::get('/admin/services','AdminController@services');
     Route::post('/admin/services','AdminController@saveservices');
+    Route::get('/admin/help','AdminController@help');
+    Route::post('/admin/help','AdminController@savehelp');
 });

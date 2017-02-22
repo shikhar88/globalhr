@@ -348,6 +348,13 @@ class AdminController extends Controller
 
 
     public function services(){
+
+        if(Input::get('action',null)=='1'){
+            $id = Input::get('id');
+            $data = Services::where('id',$id)->select('value')->get()->first();
+            return $data->value;
+        }
+        else{
         $logo = Images::where('type','logo')->get()->first();
         $serviceslides = Services::where('type','slide')->get();
         $serviceslide = array();
@@ -362,6 +369,7 @@ class AdminController extends Controller
         return view('admin.services')->with('logo',$logo->path)
             ->with('serviceslide',$serviceslide)
             ;
+        }
     }
 
     public function saveservices(){
@@ -370,30 +378,79 @@ class AdminController extends Controller
         $content['name'] = $data['name'];
         $content['position'] = $data['position'];
         $content['content'] = $data['content'];
-        if(isset($data['thumbnailimage'])){
-            $extension=$data['thumbnailimage']->guessExtension();
-            $filename='logo'.'.'.$extension;
-            if($data['thumbnailimage']->move(public_path().'/uploads/servicethumb/',$filename))
-            {
-                $content['thumbnail'] = '/uploads/servicethumb/'.$filename;
+        if(isset($data['serviceid'])){
+            if(isset($data['thumbnailimage'])){
+                $extension=$data['thumbnailimage']->guessExtension();
+                $filename='logo'.'.'.$extension;
+                if($data['thumbnailimage']->move(public_path().'/uploads/servicethumb/',$filename))
+                {
+                    $content['thumbnail'] = '/uploads/servicethumb/'.$filename;
+                }
             }
+            else{
+                $content['thumbnail'] =$data['serviceimage'];
+            }
+            Services::where('id',$data['serviceid'])
+                ->update(['value'=>json_encode($content)]);
         }
+        else{
+            if(isset($data['thumbnailimage'])){
+                $extension=$data['thumbnailimage']->guessExtension();
+                $filename='logo'.'.'.$extension;
+                if($data['thumbnailimage']->move(public_path().'/uploads/servicethumb/',$filename))
+                {
+                    $content['thumbnail'] = '/uploads/servicethumb/'.$filename;
+                }
+            }
+            else{
+                $content['thumbnail'] = null;
+            }
+            $services = new Services();
+            $services->type = 'slide';
+            $services->value = json_encode($content);
+            $services->save();
+        }
+
+//        $logo = Images::where('type','logo')->get()->first();
+//        $serviceslides = Services::where('type','slide')->get();
+//        $serviceslide = array();
+//        if($serviceslides)
+//            foreach ($serviceslides as $key=>$value){
+//                $data = json_decode($value->value);
+//                $data->id = $value->id;
+//                $serviceslide[$key] = $data;
+//            }
+//        else
+//            $serviceslide = null;
+        return redirect('/admin/services')->with('success','Data has been updated');
+//        return view('admin.services')->with('logo',$logo->path)
+//            ->with('serviceslide',$serviceslide)
+//            ;
+    }
+
+    public function help(){
+        $logo = Images::where('type','logo')->get()->first();
+        $helps = Services::where('type','help')->get();
+        $data = array();
+        foreach ($helps as $key=>$value){
+            $content = json_decode($value->value);
+            $content->id = $value->id;
+            $data[$key] = $content;
+        }
+        return view('admin.help')->with('logo',$logo->path)->with('help',$data);
+    }
+
+
+    public function savehelp(){
+        $data=Input::all();
+        $content = array();
+        $content['title'] = $data['title'];
+        $content['desc'] = $data['desc'];
         $services = new Services();
-        $services->type = 'slide';
+        $services->type = 'help';
         $services->value = json_encode($content);
         $services->save();
-        $logo = Images::where('type','logo')->get()->first();
-        $serviceslides = Services::where('type','slide')->get();
-        $serviceslide = array();
-        if($serviceslides)
-            foreach ($serviceslides as $key=>$value){
-                $serviceslide[$key] = json_decode($value->value);
-            }
-        else
-            $serviceslide = null;
-        return view('admin.services')->with('logo',$logo->path)
-            ->with('serviceslide',$serviceslide)
-            ;
+        return redirect('/admin/help')->with('success','Content has been added');
     }
 
 

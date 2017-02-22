@@ -70,49 +70,44 @@
                                         <div id="collapse{{$key}}" class="panel-collapse collapse in">
                                             <div class="panel-body">
                                                 <div class="form-group">
-                                                    <label class="col-sm-2 control-label">
+                                                    <label class="col-sm-2 ">
                                                         Name
                                                     </label>
-                                                    <div class="col-sm-6">
+                                                    <div class="col-sm-10">
 													    {{$service->name}}
                                                     </div>
-                                                    <div class="col-sm-4">
-                                                    </div>
                                                 </div>
+                                                <br>
 
                                                 <div class="form-group">
-                                                    <label class="col-sm-2 control-label">
+                                                    <label class="col-sm-2">
                                                         Position
                                                     </label>
-                                                    <div class="col-sm-6">
+                                                    <div class="col-sm-10">
                                                         {{$service->position}}
                                                     </div>
-                                                    <div class="col-sm-4">
-                                                    </div>
-                                                </div>
 
+                                                </div>
+                                                <br>
                                                 <div class="form-group">
-                                                    <label class="col-sm-2 control-label">
+                                                    <label class="col-sm-2 ">
                                                         Thumbnail
                                                     </label>
-                                                    <div class="col-sm-6">
+                                                    <div class="col-sm-10">
                                                         <img class="i" src={{$service->thumbnail}} />
                                                     </div>
-                                                    <div class="col-sm-4">
-                                                    </div>
-                                                </div>
 
+                                                </div>
+                                                <br>
                                                 <div class="form-group">
-                                                    <label class="col-sm-2 control-label">
+                                                    <label class="col-sm-2 ">
                                                         Content
                                                     </label>
-                                                    <div class="col-sm-6">
+                                                    <div class="col-sm-10">
                                                         {!! $service->content !!}
                                                     </div>
-                                                    <div class="col-sm-4">
-                                                    </div>
                                                 </div>
-                                                <a href="#responsivenew" data-toggle="modal" class="demo btn btn-blue" onclick="feeddata({{$key}});tinymcestart();">
+                                                <a href="#responsivenew" data-toggle="modal" class="demo btn btn-blue" onclick="feeddata({{$service->id}});tinymcestart();">
                                                     Edit
                                                 </a>
                                             </div>
@@ -203,8 +198,10 @@
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-md-12">
-                            <form method="post" action="/admin/services" enctype="multipart/form-data" id="serviceform">
+                            <form method="post" action="/admin/services" enctype="multipart/form-data" id="serviceformedit">
                                 <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
+                                <input type="hidden" name="serviceid"  id="serviceidedit" value="">
+                                <input type="hidden" name="serviceimage" id="serviceimage"  value="">
                                 <p>
                                     <input class="form-control" type="text" placeholder="Name" name="name" id="servicename">
                                 </p>
@@ -233,7 +230,7 @@
                                         </a>
                                     </div>
                                 </div>
-                                <textarea name="content" rows=16 id="template_contents" class="servicecontent form-control tinymce"></textarea>
+                                <textarea name="content" rows=16 id="template_contents_new" class="servicecontent form-control tinymce"></textarea>
                             </form>
                         </div>
                     </div>
@@ -242,8 +239,9 @@
                     <button type="button" data-dismiss="modal" class="btn btn-light-grey">
                         Close
                     </button>
-                    <button type="button" class="btn btn-blue" onclick="submitform();">
-                        Add
+
+                    <button type="button" class="btn btn-blue" onclick="submitformnew();">
+                        Update
                     </button>
                 </div>
             </div>
@@ -299,9 +297,34 @@
            $("#serviceform").submit();
        }
 
+        function submitformnew() {
+            $("#serviceformedit").submit();
+        }
+
        function feeddata(key) {
-           console.log(key);
-           console.log({{$serviceslide[]->name}});
+           $.ajax({
+              url:'/admin/services',
+               data:{'id':key,'action':'1'},
+               method:'get',
+               dataType:'json',
+               success:function (result) {
+                   tinymce.remove();
+                   tinymcestart();
+                   $(".modal-body #servicename").val(result.name);
+                   $("#serviceidedit").val(key);
+                   $("#serviceimage").val(result.thumbnail);
+                   $(".modal-body #servicepos").val(result.position);
+                   $(".modal-body #serviceimg").attr('src',result.thumbnail);
+//                   tinyMCE.get('.servicecontent').setContent(result.content);
+//                   $(".servicecontent").html(result.content);
+                   tinymce.get('template_contents_new').setContent(result.content);
+
+               },
+               error:function () {
+
+               }
+           });
+           {{--console.log({{$serviceslide[]->name}});--}}
            {{--$(".modal-body #servicename").val({{$serviceslide[key]->name}});--}}
            {{--$(".modal-body #servicepos").val({{$serviceslide[key]->position}});--}}
            {{--$(".modal-body #serviceimg").attr('img',"{{$serviceslide[key]->thumbnail}}");--}}

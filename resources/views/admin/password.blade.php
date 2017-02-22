@@ -130,18 +130,6 @@
                     },
                     ignore: "",
                     rules: {
-                        firstname: {
-                            minlength: 2,
-                            required: true
-                        },
-                        lastname: {
-                            minlength: 2,
-                            required: true
-                        },
-                        email: {
-                            required: true,
-                            email: true
-                        },
                         password: {
                             minlength: 7,
                             required: true
@@ -150,34 +138,7 @@
                             required: true,
                             minlength: 7,
                             equalTo: "#password"
-                        },
-                        yyyy: "FullDate",
-                        gender: {
-                            required: true
-                        },
-                        zipcode: {
-                            required: true,
-                            number: true,
-                            minlength: 5
-                        },
-                        city: {
-                            required: true
-                        },
-                        newsletter: {
-                            required: true
                         }
-                    },
-                    messages: {
-                        firstname: "Please specify your first name",
-                        lastname: "Please specify your last name",
-                        email: {
-                            required: "We need your email address to contact you",
-                            email: "Your email address must be in the format of name@domain.com"
-                        },
-                        gender: "Please check a gender!"
-                    },
-                    groups: {
-                        DateofBirth: "dd mm yyyy",
                     },
                     invalidHandler: function (event, validator) { //display error alert on form submit
                         successHandler1.hide();
@@ -203,6 +164,7 @@
                         errorHandler1.hide();
                         // submit form
                         $('#form').submit();
+                        console.log('ok');
                     }
                 });
             };
