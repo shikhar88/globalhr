@@ -46,10 +46,8 @@
     <i class="divider"></i>
     <div class="footer-right" style="text-align: left">
 
-        <p class="footer-company-about">
-            <span>About the company</span>
-            {{$comapnydetail->aboutcompany}}
-        </p>
+        <iframe src="http://{{$comapnydetail->youtube}}"
+                height="250" frameborder="0" allowfullscreen></iframe>
 
         <div class="footer-icons">
 

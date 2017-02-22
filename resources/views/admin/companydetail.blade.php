@@ -146,6 +146,18 @@
                                     <div class="col-sm-4">
                                     </div>
                                 </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">
+                                        Youtube
+                                    </label>
+                                    <div class="col-sm-6">
+													<span class="input-icon">
+														<input type="text" placeholder="www.youtube.com/embed/W7qWa52k-nE" name="youtube" class="form-control" value="{{$data->youtube}}">
+														<i class="fa fa-user"></i> </span>
+                                    </div>
+                                    <div class="col-sm-4">
+                                    </div>
+                                </div>
                             </form>
                         </div>
                     </div>
