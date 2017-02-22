@@ -354,6 +354,11 @@ class AdminController extends Controller
             $data = Services::where('id',$id)->select('value')->get()->first();
             return $data->value;
         }
+        elseif (Input::get('action',null)=='2'){
+            $id = Input::get('id');
+            Services::destroy($id);
+            echo '1';
+        }
         else{
         $logo = Images::where('type','logo')->get()->first();
         $serviceslides = Services::where('type','slide')->get();
@@ -429,6 +434,16 @@ class AdminController extends Controller
     }
 
     public function help(){
+        if(Input::get('action',null)=='1'){
+            $id = Input::get('id');
+            $data = Services::where('id',$id)->select('value')->get()->first();
+            return $data->value;
+        }
+        elseif (Input::get('action',null)=='2'){
+            $id = Input::get('id');
+            Services::destroy($id);
+            echo '1';
+        }
         $logo = Images::where('type','logo')->get()->first();
         $helps = Services::where('type','help')->get();
         $data = array();
@@ -446,10 +461,17 @@ class AdminController extends Controller
         $content = array();
         $content['title'] = $data['title'];
         $content['desc'] = $data['desc'];
-        $services = new Services();
-        $services->type = 'help';
-        $services->value = json_encode($content);
-        $services->save();
+        if(isset($data['helpid'])){
+            Services::where('id',$data['helpid'])
+                ->update(['value'=>json_encode($content)]);
+        }
+        else{
+            $services = new Services();
+            $services->type = 'help';
+            $services->value = json_encode($content);
+            $services->save();
+        }
+
         return redirect('/admin/help')->with('success','Content has been added');
     }
 

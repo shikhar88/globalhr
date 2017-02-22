@@ -50,21 +50,20 @@
                     <!-- start: ACCORDION PANEL -->
                     <div class="panel panel-white">
                         <div class="panel-heading">
-                            <h4 class="panel-title">Accordions</h4>
                             <div class="panel-tools">
                                 <a href="#responsive" data-toggle="modal" class="demo btn btn-blue" onclick="tinymcestart()">
-                                    View Demo
+                                    Add
                                 </a>
                             </div>
                         </div>
+                        <div class="panel-body">
                         @foreach($serviceslide as $key=>$service)
-                            <div class="panel-body">
-                                <div class="panel-group accordion" id="accordion">
+                                <div class="panel-group accordion" id="accordion{{$service->id}}">
                                     <div class="panel panel-white">
                                         <div class="panel-heading">
                                             <h5 class="panel-title">
                                                 <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse{{$key}}">
-                                                    <i class="icon-arrow"></i> Collapsible Group Item #1
+                                                    <i class="icon-arrow"></i> {{$service->name}}
                                                 </a></h5>
                                         </div>
                                         <div id="collapse{{$key}}" class="panel-collapse collapse in">
@@ -110,12 +109,15 @@
                                                 <a href="#responsivenew" data-toggle="modal" class="demo btn btn-blue" onclick="feeddata({{$service->id}});tinymcestart();">
                                                     Edit
                                                 </a>
+                                                <a href="#" class="demo btn btn-blue" onclick="deleteservice({{$service->id}});">
+                                                    Delete
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
                         @endforeach
+                        </div>
                     </div>
                     <!-- end: ACCORDION PANEL -->
                 </div>
@@ -299,6 +301,24 @@
 
         function submitformnew() {
             $("#serviceformedit").submit();
+        }
+
+        function deleteservice(id) {
+            bootbox.confirm("Are you sure you want to delete this ?",function (res) {
+                if (res)
+                    $.ajax({
+                        url: '/admin/services',
+                        data: {'id': id, 'action': '2'},
+                        method: 'get',
+                        success: function (result) {
+                            $("#accordion" + id).css('display', 'none');
+                            showToast('success', 'Content has been deleted');
+                        },
+                        error: function () {
+                            showToast('error', 'Error while deleting content. Try again.');
+                        }
+                    });
+            });
         }
 
        function feeddata(key) {

@@ -212,13 +212,9 @@
             <div class="panel-body">
                 <p style="text-align: center;"><strong>How WE Can Help?</strong></p>
                 <!--<div class="newspaper">-->
-                <li><a href="#"  data-toggle="modal" data-target="#pointModal">Guaranteed scholarships for deserving students</a></li>
-                <li><a href="#"  data-toggle="modal" data-target="#pointModal">Guaranteed scholarships for deserving students</a></li>
-                <li><a href="#"  data-toggle="modal" data-target="#pointModal">Guaranteed scholarships for deserving students</a></li>
-                <li><a href="#"  data-toggle="modal" data-target="#pointModal">Guaranteed scholarships for deserving students</a></li>
-                <li><a href="#"  data-toggle="modal" data-target="#pointModal">Guaranteed scholarships for deserving students</a></li>
-                <li><a href="#"  data-toggle="modal" data-target="#pointModal">Guaranteed scholarships for deserving students</a></li>
-
+                @foreach($help as $hlp)
+                    <li><a href="#"  data-toggle="modal" data-target="#pointModal" onclick="showhelpmodal('{{$hlp->id}}');">{{$hlp->title}}</a></li>
+                @endforeach
             </div>
 
             <!--</div>-->
@@ -229,11 +225,11 @@
                     <div class="modal-content" style="text-align: justify;">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">Guaranteed scholarships for deserving students</h4>
+                            <h4 class="modal-title" id="modalheader"></h4>
                         </div>
 
                         <p class="modal-body"></p>
-                        <p style="text-align: justify; padding:0% 3%">Guaranteed scholarships for deserving students</p>
+                        <p style="text-align: justify; padding:0% 3%" id="modalcontent"></p>
                     </div>
                 </div>
 

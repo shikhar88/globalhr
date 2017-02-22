@@ -31,6 +31,16 @@ class HomeController extends Controller
            }
        else
            $serviceslide = null;
+       $helps = Services::where('type','help')->get();
+       $help = array();
+       if($helps)
+           foreach ($helps as $key=>$value){
+               $content = json_decode($value->value);
+               $content->id = $value->id;
+               $help[$key] = $content;
+           }
+       else
+           $help = null;
        return view('homepage')
            ->with('aboutus',$aboutus[0]->value)
            ->with('banner',$banner)
@@ -42,6 +52,7 @@ class HomeController extends Controller
            ->with('australiaimage',$australiaimage->path)
            ->with('newzelandimage',$newzelandimage->path)
            ->with('serviceslide',$serviceslide)
+           ->with('help',$help)
            ;
    }
 

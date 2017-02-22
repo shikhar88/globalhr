@@ -130,19 +130,20 @@
         }
 
         function removebanner(bid) {
-            bootbox.confirm("Are you sure you want to delete this image",function () {
-                $.ajax({
-                    url: '/admin/banner',
-                    data: {'id': bid, 'action': 'delete', 'crud': '1'},
-                    method: 'get',
-                    success: function () {
-                        $("#banner" + bid).css('display','none');
-                        showToast('success', 'Image has been successfully deleted');
-                    },
-                    error: function () {
-                        showToast('error', 'Error deleting image.Try again');
-                    }
-                });
+            bootbox.confirm("Are you sure you want to delete this image",function (res) {
+                if(res)
+                    $.ajax({
+                        url: '/admin/banner',
+                        data: {'id': bid, 'action': 'delete', 'crud': '1'},
+                        method: 'get',
+                        success: function () {
+                            $("#banner" + bid).css('display','none');
+                            showToast('success', 'Image has been successfully deleted');
+                        },
+                        error: function () {
+                            showToast('error', 'Error deleting image.Try again');
+                        }
+                    });
             });
         }
 

@@ -60,8 +60,10 @@
                             <div class="col-sm-4"><b>Title</b></div>
                             <div class="col-sm-8"><b>Action</b></div>
                             @foreach($help as $hlp)
-                                <div class="col-sm-4">{{$hlp->title}}</div>
-                                <div class="col-sm-8"><i class="fa fa-edit"></i></div>
+                                <div id="helpdiv{{$hlp->id}}">
+                                    <div class="col-sm-4">{{$hlp->title}}</div>
+                                    <div class="col-sm-8"><a href="#responsive" data-toggle="modal" onclick="feedcontent('{{$hlp->id}}')"><i class="fa fa-edit"></i></a> &nbsp;&nbsp;<i class="fa fa-trash-o" style="cursor: pointer;" onclick="deletehelp('{{$hlp->id}}');"></i></div>
+                                </div>
                             @endforeach
                         </div>
                     </div>
@@ -88,11 +90,12 @@
                             <div class="col-md-12">
                                 <form method="post" action="/admin/help" id="helpform">
                                     <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
+                                    <input type="hidden" name="helpid" id="helpid" value="">
                                     <p>
-                                        <input class="form-control" type="text" placeholder="Name" name="title">
+                                        <input class="form-control titlecontent" type="text" placeholder="Name" name="title">
                                     </p>
                                     <p>
-                                    <textarea maxlength="320" class="autosize form-control limited" id="form-field-24" name="desc" placeholder="Description"></textarea>
+                                    <textarea class="autosize form-control desccontent" id="form-field-24" name="desc" placeholder="Description" style="min-height: 250px;"></textarea>
                                     </p>
                                 </form>
                             </div>
@@ -102,7 +105,7 @@
                         <button type="button" data-dismiss="modal" class="btn btn-light-grey">
                             Close
                         </button>
-                        <button type="button" class="btn btn-blue" onclick="submithelpform();">
+                        <button type="button" class="btn btn-blue addbutton" onclick="submithelpform();">
                             Add
                         </button>
                     </div>
@@ -116,6 +119,42 @@
     <script type="text/javascript">
         function submithelpform() {
             $("#helpform").submit();
+        }
+
+        function feedcontent(id) {
+            $.ajax({
+                url:'/admin/help',
+                data:{'id':id,'action':'1'},
+                method:'get',
+                dataType:'json',
+                success:function (result) {
+                    $(".modal-body .titlecontent").val(result.title);
+                    $(".modal-body .desccontent").val(result.desc);
+                    $(".addbutton").html("Update");
+                    $("#helpid").val(id);
+                },
+                error:function () {
+
+                }
+            });
+        }
+
+        function deletehelp(id) {
+            bootbox.confirm("Are you sure you want to delete this ?",function (res) {
+                if(res)
+                    $.ajax({
+                        url: '/admin/help',
+                        data: {'id': id, 'action': '2'},
+                        method: 'get',
+                        success: function () {
+                            $("#helpdiv" + id).css('display', 'none');
+                            showToast('success', 'Content has been deleted');
+                        },
+                        error: function () {
+                            showToast('error', 'Error while deleting content. Try again.');
+                        }
+                    });
+            });
         }
     </script>
 @endsection
