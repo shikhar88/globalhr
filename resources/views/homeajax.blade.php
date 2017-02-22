@@ -308,8 +308,9 @@
                 {{--<input placeholder='Email' type='email'>--}}
                 <div class="bfh-selectbox bfh-countries" data-country="US" data-flags="true">
                 </div>
-                <input placeholder='Phone no' type='text' name="phone" id="mailPhone" style="background-color:#fff;">
-                <input placeholder='Subject' type='text' name="subject" id="mailSubject" style="background-color:#fff;">
+                <input placeholder='Phone no' type='number' name="phone" id="mailPhone" style="background-color:#fff;">
+                <input placeholder='Email' type='email' name="email" id="mailEmail" style="background-color:#fff;">
+                <input placeholder='Subject' type='text' name="subject" id="mailSubject"style="background-color:#fff;">
                 <textarea placeholder='Message' rows='4' name="message" id="mailMessage" style="background-color:#fff;"></textarea>
                 <input placeholder='Send' type='submit' style="display: none;">
                 <a style="cursor: pointer;" class="btn btn-default" onclick="sendMail();">Submit</a>

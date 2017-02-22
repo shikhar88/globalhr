@@ -445,7 +445,8 @@
                     {{--<input placeholder='Email' type='email'>--}}
                     <div class="bfh-selectbox bfh-countries" data-country="US" data-flags="true">
                     </div>
-                    <input placeholder='Phone no' type='text' name="phone" id="mailPhone" style="background-color:#fff;">
+                    <input placeholder='Phone no' type='number' name="phone" id="mailPhone" style="background-color:#fff;">
+                    <input placeholder='Email' type='email' name="email" id="mailEmail" style="background-color:#fff;">
                     <input placeholder='Subject' type='text' name="subject" id="mailSubject"style="background-color:#fff;">
                     <textarea placeholder='Message' rows='4' name="message" id="mailMessage" style="background-color:#fff;"></textarea>
                     <input placeholder='Send' type='submit' style="display: none;">
@@ -539,14 +540,22 @@
 
     function sendMail() {
         if ($.trim($("#mailSubject").val()) == "")
-            $("#mailSubject").css("border","1px solid red");
+            $("#mailSubject").css("border","3px solid red");
         else
             $("#mailSubject").css("border","none");
+        if ($.trim($("#mailPhone").val()) == "")
+            $("#mailPhone").css("border","3px solid red");
+        else
+            $("#mailPhone").css("border","none");
+        if ($.trim($("#mailEmail").val()) == "")
+            $("#mailEmail").css("border","3px solid red");
+        else
+            $("#mailEmail").css("border","none");
         if ($.trim($("#mailMessage").val()) == "")
-            $("#mailMessage").css("border","1px solid red");
+            $("#mailMessage").css("border","3px solid red");
         else
             $("#mailMessage").css("border","none");
-        if ($.trim($("#mailSubject").val()) == "" || $.trim($("#mailMessage").val()) == "")
+        if ($.trim($("#mailSubject").val()) == "" || $.trim($("#mailMessage").val()) == "" || $.trim($("#mailPhone").val()) == "" || $.trim($("#mailEmail").val()) == "")
             return false;
 
         var data = $("#mailform").serialize();
