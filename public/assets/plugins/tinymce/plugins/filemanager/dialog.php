@@ -207,7 +207,7 @@ if(!isset($_GET['field_id'])) $_GET['field_id']='';
 	<div class="span12">
 	    <?php if(@opendir($root . $cur_dir)===FALSE){ ?>
 	    <br/>
-	    <div class="alert alert-error">There is an error! The root folder not exist. </div> 
+	    <div class="alert alert-error">There is an error! The root folder not exist. </div>
 	    <?php }else{ ?>
 	    <h4 id="help">Swipe the name of file/folder to show options</h4>
 		    

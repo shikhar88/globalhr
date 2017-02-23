@@ -19,7 +19,7 @@ Route::post('/login','AdminController@authenticate');
 Route::get('study/{country}','HomeController@abroad');
 Route::get('/logout', function(){Auth::logout();return redirect('/login')->with('success','Logged out Succesfully');});
 Route::group(['middleware'=>['auth']], function(){
-    Route::get('/admin','AdminController@dashboard');
+    Route::get('/admin',function(){return redirect()->intended('/admin/companydetail');});
     Route::get('/admin/maps','AdminController@dashboard');
     Route::get('/admin/aboutus','AdminController@content');
     Route::get('/admin/banner','AdminController@banner');

@@ -25,7 +25,7 @@ class AdminController extends Controller
         $password = Input::get('password');
         if (Auth::attempt(['username' => $username, 'password' => $password])) {
             // Authentication passed...
-            return redirect()->intended('admin');
+            return redirect()->intended('/admin/companydetail');
         }
         else return redirect('/login')->with('error','Invalid Login details.');
 
