@@ -340,14 +340,22 @@ class AdminController extends Controller
 
     public function savepassword(){
         $credentials = ['username' => Auth::user()->username, 'password' => Input::get('oldPassword')];
-        dd(Input::get('password'));
         if (Auth::validate($credentials)) {
             $user = Auth::user();
-            $user->password = Input::get('password');
+            $user->password = bcrypt(Input::get('password'));
             $user->save();
+            if(Input::get('password') != Input::get('password_again')){
+                return redirect('/admin/passwordchange')->with('error','Enter same password for the new password');
+            }
+            return redirect('/admin/passwordchange')->with('success','Password has been changed');
         }
         else{
-
+            if(Input::get('password') != Input::get('password_again')){
+                return redirect('/admin/passwordchange')->with('error','Enter same password for the new password');
+            }
+            else{
+                return redirect('/admin/passwordchange')->with('error','Your old password does not match');
+            }
         }
     }
 

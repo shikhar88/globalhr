@@ -34,7 +34,7 @@
 
         <div class="col-lg-12" style="text-align:center" id="aboutus">
             <h1 class="page-header1" style="margin-top: 3%">
-                {{$comapnydetail->topicfirst}}
+                {{($comapnydetail->topicfirst)?$comapnydetail->topicfirst:''}}
             </h1>
             <div class="head_line"></div>
         </div>
@@ -46,7 +46,7 @@
                 <div class="panel panel-default">
 
                     <div class="panel-heading">
-                        <p style="text-align: center">{{$comapnydetail->aboutcompany}}</p>
+                        <p style="text-align: center">{{($comapnydetail->aboutcompany)?$comapnydetail->aboutcompany:''}}</p>
                     </div>
                 </div>
             </div>
@@ -110,11 +110,11 @@
                                     <div class="container_my">
                                         <div class="img">
                                             <a onclick="study('study/usa')" style="cursor: pointer;">
-                                                <img src="{{$usaimage}}" alt="Avatar" class="image" style="width:100%">
+                                                <img src="{{($usaimage)?$usaimage:''}}" alt="Avatar" class="image" style="width:100%">
                                                 <div class="middle">
-                                                    <div style="padding: 1%">{{$detail->descfirst}}</div>
+                                                    <div style="padding: 1%">{{($detail->descfirst)?$detail->descfirst:''}}</div>
                                                 </div>
-                                                <div class="desc" style="padding-left: 14%;text-align: left">{{$detail->titlefirst}}
+                                                <div class="desc" style="padding-left: 14%;text-align: left">{{($detail->titlefirst)?$detail->titlefirst:''}}
                                                 </div>
                                             </a>
                                         </div>
@@ -123,11 +123,11 @@
                                     <div class="container_my">
                                         <div class="img">
                                             <a onclick="study('study/australia')" style="cursor: pointer;">
-                                                <img src="{{$australiaimage}}" alt="Avatar" class="image" style="width:100%">
+                                                <img src="{{($australiaimage)?$australiaimage:''}}" alt="Avatar" class="image" style="width:100%">
                                                 <div class="middle">
-                                                    <div style="padding: 1%">{{$detail->descsecond}}</div>
+                                                    <div style="padding: 1%">{{($detail->descsecond)?$detail->descsecond:''}}</div>
                                                 </div>
-                                                <div class="desc" style="padding-left: 14%;text-align: left">{{$detail->titlesecond}}
+                                                <div class="desc" style="padding-left: 14%;text-align: left">{{($detail->titlesecond)?$detail->titlesecond:''}}
                                                 </div>
                                             </a>
                                         </div>
@@ -137,11 +137,11 @@
                                     <div class="container_my">
                                         <div class="img">
                                             <a onclick="study('study/newzealand')" style="cursor: pointer;">
-                                                <img src="{{$newzelandimage}}" alt="Avatar" class="image" style="width:100%">
+                                                <img src="{{($newzelandimage)?$newzelandimage:''}}" alt="Avatar" class="image" style="width:100%">
                                                 <div class="middle">
-                                                    <div style="padding: 1%"> {{$detail->descthird}}</div>
+                                                    <div style="padding: 1%"> {{($detail->descthird)?$detail->descthird:''}}</div>
                                                 </div>
-                                                <div class="desc" style="padding-left: 14%;text-align: left">{{$detail->titlethird}}
+                                                <div class="desc" style="padding-left: 14%;text-align: left">{{($detail->titlethird)?$detail->titlethird:''}}
                                                 </div>
                                             </a>
                                         </div>
@@ -150,11 +150,11 @@
                                     <div class="container_my">
                                         <div class="img">
                                             <a onclick="study('study/europe')" style="cursor: pointer;">
-                                                <img src="{{$europeimage}}" alt="Avatar" class="image" style="width:100%">
+                                                <img src="{{($europeimage)?$europeimage:''}}" alt="Avatar" class="image" style="width:100%">
                                                 <div class="middle">
-                                                    <div style="padding: 1%">{{$detail->descfourth}}</div>
+                                                    <div style="padding: 1%">{{($detail->descfourth)?$detail->descfourth:''}}</div>
                                                 </div>
-                                                <div class="desc" style="padding-left: 14%;text-align: left">{{$detail->titlefourth}}
+                                                <div class="desc" style="padding-left: 14%;text-align: left">{{($detail->titlefourth)?$detail->titlefourth:''}}
                                                 </div>
                                             </a>
                                         </div>
@@ -176,7 +176,7 @@
 <!-- Portfolio Section -->
 <div class="row" style="background-color:#F7F6F0 ">
     <div class="col-lg-12" style="color:#666; text-align:center">
-        <h2 class="page-header1" style="color: #666">{{$comapnydetail->topicsecond}}<div class="head_line"></div></h2>
+        <h2 class="page-header1" style="color: #666">{{($comapnydetail->topicsecond)?$comapnydetail->topicsecond:''}}<div class="head_line"></div></h2>
 
     </div>
 
@@ -200,7 +200,7 @@
 <!-- Features Section -->
 <div class="row">
     <div class="col-lg-12 divPadding" style="text-align:center" id="company_feature">
-        <h2 class="page-header1">{{$comapnydetail->topicthird}}</h2>
+        <h2 class="page-header1">{{($comapnydetail->topicthird)?$comapnydetail->topicthird:''}}</h2>
         <div class="head_line"></div>
     </div>
     <div class="col-md-3 col-lg-offset-1">
@@ -210,7 +210,7 @@
                 <p style="text-align: center;"><strong>How WE Can Help?</strong></p>
                 <!--<div class="newspaper">-->
                 @foreach($help as $hlp)
-                    <li><a href="#"  data-toggle="modal" data-target="#pointModal" onclick="showhelpmodal('{{$hlp->id}}');">{{$hlp->title}}</a></li>
+                    <li><a href="#"  data-toggle="modal" data-target="#pointModal" onclick="showhelpmodal('{{($hlp->id)?$hlp->id:''}}');">{{($hlp->title)?$hlp->title:''}}</a></li>
                 @endforeach
             </div>
 
@@ -241,6 +241,9 @@
             <!--<div style="position:absolute;display:block;background:url('img/loading.gif') no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>-->
         </div>
         <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:600px;height:300px;overflow:hidden;">
+
+            <!--<img data-u="image" src="img/3.jpg" />-->
+
             @foreach($serviceslide as $service)
                 <div>
                     {!! $service->content !!}
@@ -251,6 +254,7 @@
                     </div>
                 </div>
             @endforeach
+
         </div>
         <!-- Thumbnail Navigator -->
         <div data-u="thumbnavigator" class="jssort11" style="position:absolute;right:5px;top:0px;font-family:Arial, Helvetica, sans-serif;-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none;width:200px;height:300px;" data-autocenter="2">
@@ -274,31 +278,11 @@
     <div id='content'>
         <div id='left'>
             <div id='map'>
-
-                <!--<p>Where To Find Us</p>-->
-                <!--<div class='map-locator'>-->
-                <!--<div class='tooltip'>-->
-                <!--<ul>-->
-                <!--<li>-->
-                <!--<span class='entypo-location'></span>-->
-                <!--<span class='selectedLocation'>Nepal</span>-->
-                <!--</li>-->
-                <!--<li>-->
-                <!--<span class='entypo-mail'></span>-->
-            <!--<a href='#'>info.parshuram1990@gmail.com</a>-->
-                <!--</li>-->
-                <!--<li>-->
-                <!--<span class='entypo-phone'></span>-->
-                <!--+977-9841095697-->
-                <!--</li>-->
-                <!--</ul>-->
-                <!--</div>-->
-                <!--</div>-->
                 <div class='zoom'></div>
             </div>
 
         </div>
-        <div id='right'style="color:#fff;">
+        <div id='right' style="color:#fff;">
             <p>Connect</p>
             <div id='social'>
 
