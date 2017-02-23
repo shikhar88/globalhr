@@ -37,7 +37,7 @@
                             </a>
                         </li>
                         <li class="active">
-                            Dashboard
+                            Study Abroad
                         </li>
                     </ol>
                 </div>

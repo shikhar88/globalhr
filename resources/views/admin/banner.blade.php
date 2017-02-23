@@ -7,8 +7,8 @@
             <div class="toolbar row">
                 <div class="col-sm-6 hidden-xs">
                     <div class="page-header">
-                        <h1>Dashboard
-                            <small>overview &amp; stats</small>
+                        <h1>Banner
+                            <small>Setting</small>
                         </h1>
                     </div>
                 </div>
@@ -17,11 +17,6 @@
                         <!-- start: TOP NAVIGATION MENU -->
                         <ul class="nav navbar-right">
                             <!-- start: TO-DO DROPDOWN -->
-                            <li class="menu-search">
-                                <a href="" onclick="saveBanner();">
-                                    <i class="fa fa-floppy-o 2x"></i> SAVE
-                                </a>
-                            </li>
                         </ul>
                         <!-- end: TOP NAVIGATION MENU -->
                     </div>
@@ -35,11 +30,11 @@
                     <ol class="breadcrumb">
                         <li>
                             <a href="#">
-                                Dashboard
+                                Admin
                             </a>
                         </li>
                         <li class="active">
-                            Dashboard
+                            Banner setting
                         </li>
                     </ol>
                 </div>
@@ -55,12 +50,8 @@
                                 <a class="thumb-info" href="{{$ban->path}}" data-lightbox="gallery"
                                    data-title="Website">
                                     <img src="{{$ban->path}}" class="img-responsive" alt="">
-                                    <span class="thumb-info-title"> Website </span>
                                 </a>
                                 <div class="tools tools-bottom">
-                                    <a style="cursor: pointer;">
-                                        <i class="fa fa-link"></i>
-                                    </a>
 
                                     @if($ban->active == '1')
                                         <a style="cursor: pointer;" onclick="changeStatus('{{$ban->id}}',this);" data-active="0">

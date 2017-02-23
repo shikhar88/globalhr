@@ -94,8 +94,7 @@ class AdminController extends Controller
                 $img->save();
             }
         }
-        $banner = Images::where('type','banner')->get();
-        return view('admin.banner')->with('banner',$banner)->with('logo',$logo->path);
+        return redirect('/admin/banner')->with('success','Banner has been added');
     }
 
 
@@ -325,11 +324,7 @@ class AdminController extends Controller
                 $img->save();
             }
         }
-        $logo = Images::where('type','logo')->get()->first();
-        $certification = Images::where('type','certification')->get();
-        return view('admin.logo')->with('logo',$logo->path)
-            ->with('certification',$certification)
-            ;
+        return redirect('/admin/logo')->with('success','Content has been added');
     }
 
     public function password(){

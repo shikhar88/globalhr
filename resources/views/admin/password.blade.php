@@ -8,8 +8,7 @@
             <div class="toolbar row">
                 <div class="col-sm-6 hidden-xs">
                     <div class="page-header">
-                        <h1>Dashboard
-                            <small>overview &amp; stats</small>
+                        <h1>Change password
                         </h1>
                     </div>
                 </div>
@@ -36,11 +35,11 @@
                     <ol class="breadcrumb">
                         <li>
                             <a href="#">
-                                Dashboard
+                                Admin
                             </a>
                         </li>
                         <li class="active">
-                            Dashboard
+                            Password
                         </li>
                     </ol>
                 </div>

@@ -122,28 +122,7 @@
                 <!-- start: MAIN NAVIGATION MENU -->
                 <ul class="main-navigation-menu">
                     <li class="active open">
-                        <a href="/admin"><i class="fa fa-home"></i> <span class="title"> Dashboard </span><span class="label label-default pull-right ">LABEL</span> </a>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0)"><i class="fa fa-desktop"></i> <span class="title"> Layouts </span><i class="icon-arrow"></i> </a>
-                        <ul class="sub-menu">
-                            <li>
-                                <a href="javascript:;">
-                                    <span class="title"> Upload images </span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <span class="title"> Sidebar Closed </span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="/admin/companydetail"><i class="fa fa-bar-chart-o"></i> <span class="title">Extra detail</span> </a>
-                    </li>
-                    <li>
-                        <a href="/admin"><i class="fa fa-bar-chart-o"></i> <span class="title">Charts</span> </a>
+                        <a href="/admin/companydetail"><i class="fa fa fa-home"></i> <span class="title">Site setting</span> </a>
                     </li>
                     <li>
                         <a href="/admin/banner"><i class="fa fa-bar-chart-o"></i> <span class="title">Banner setting</span> </a>

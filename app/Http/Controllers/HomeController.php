@@ -106,14 +106,16 @@ class HomeController extends Controller
            ;
    }
    public function abroad($country){
+       $detail = Content::where('type','detailcountry')->get()->first();
+       $detailcountry = json_decode($detail->value);
         if($country == 'usa')
-            $name = 'USA';
+            $name = $detailcountry->titlefirst;
         elseif ($country=='australia')
-            $name = 'Australia';
+            $name = $detailcountry->titlesecond;
         elseif ($country=='newzealand')
-            $name = 'New Zealand';
+            $name = $detailcountry->titlethird;
         elseif ($country=='europe')
-            $name = 'Europe';
+            $name = $detailcountry->titlefourth;
         $content = Content::where('type',$country)->get()->first();
         return view('study')->with('name',$name)->with('content',$content->value);
    }

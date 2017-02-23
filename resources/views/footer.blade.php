@@ -27,18 +27,18 @@
 
         <div>
             <i class="fa fa-map-marker"></i>
-            <p><span>{{$comapnydetail->location}}</span></p>
+            <p><span>{{($comapnydetail->location)?$comapnydetail->location:''}}</span></p>
         </div>
 
         <div>
             <i class="fa fa-phone"></i>
-            <p>{{$comapnydetail->contact}}</p>
+            <p>{{($comapnydetail->contact)?$comapnydetail->contact:''}}</p>
         </div>
 
         <div>
             <i class="fa fa-envelope"></i>
-            <p><a >{{$comapnydetail->email1}}</a> </p>
-            <p style="margin-left: 17%">  <a >{{$comapnydetail->email2}}</a></p>
+            <p><a >{{($comapnydetail->email1)?$comapnydetail->email1:''}}</a> </p>
+            <p style="margin-left: 17%">  <a >{{($comapnydetail->email2)?$comapnydetail->email2:''}}</a></p>
         </div>
 
     </div>
@@ -46,14 +46,14 @@
     <i class="divider"></i>
     <div class="footer-right" style="text-align: left">
 
-        <iframe src="http://{{$comapnydetail->youtube}}"
+        <iframe src="http://{{($comapnydetail->youtube)?$comapnydetail->youtube:''}}"
                 height="250" frameborder="0" allowfullscreen></iframe>
 
         <div class="footer-icons">
 
-            <a href="http://{{$comapnydetail->fb}}" target="_blank"><i class="fa fa-facebook"></i></a>
-            <a href="http://{{$comapnydetail->twitter}}" target="_blank"><i class="fa fa-twitter"></i></a>
-            <a href="http://{{$comapnydetail->googleplus}}" target="_blank"><i class="fa fa-google-plus"></i></a>
+            <a href="http://{{($comapnydetail->fb)?$comapnydetail->fb:''}}" target="_blank"><i class="fa fa-facebook"></i></a>
+            <a href="http://{{($comapnydetail->twitter)?$comapnydetail->twitter:''}}" target="_blank"><i class="fa fa-twitter"></i></a>
+            <a href="http://{{($comapnydetail->googleplus)?$comapnydetail->googleplus:''}}" target="_blank"><i class="fa fa-google-plus"></i></a>
             {{--<a href="#"><i class="fa fa-home"></i></a>--}}
 
         </div>

@@ -435,9 +435,9 @@
                 </form>
                 <p>other way</p>
                 <p class='other entypo-mail'style="color:#fff;">
-                    <a href='#' style="color:#fff;">info@globalhr.edu.np</a>
+                    <a href='#' style="color:#fff;">{{($comapnydetail->email1)?$comapnydetail->email1:''}}</a>
                 </p>
-                <p class='other entypo-phone' style="color:#fff;">+977-1-4233140 / 4239302</p>
+                <p class='other entypo-phone' style="color:#fff;">{{($comapnydetail->contact)?$comapnydetail->contact:''}}</p>
             </div>
         </div>
     </div>

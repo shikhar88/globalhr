@@ -7,8 +7,8 @@
             <div class="toolbar row">
                 <div class="col-sm-6 hidden-xs">
                     <div class="page-header">
-                        <h1>Dashboard
-                            <small>overview &amp; stats</small>
+                        <h1>
+                            How can we help
                         </h1>
                     </div>
                 </div>
@@ -17,11 +17,6 @@
                         <!-- start: TOP NAVIGATION MENU -->
                         <ul class="nav navbar-right">
                             <!-- start: TO-DO DROPDOWN -->
-                            <li class="menu-search">
-                                <a href="" onclick="saveContact();">
-                                    <i class="fa fa-floppy-o 2x"></i> SAVE
-                                </a>
-                            </li>
                         </ul>
                         <!-- end: TOP NAVIGATION MENU -->
                     </div>
@@ -35,11 +30,11 @@
                     <ol class="breadcrumb">
                         <li>
                             <a href="#">
-                                Dashboard
+                                Admin
                             </a>
                         </li>
                         <li class="active">
-                            Dashboard
+                            How can we help
                         </li>
                     </ol>
                 </div>

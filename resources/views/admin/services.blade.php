@@ -7,7 +7,7 @@
             <div class="toolbar row">
                 <div class="col-sm-6 hidden-xs">
                     <div class="page-header">
-                        <h1>Study <small>Abroad </small></h1>
+                        <h1>Service <small>Setting </small></h1>
                     </div>
                 </div>
                 <div class="col-sm-6 col-xs-12">
@@ -15,11 +15,6 @@
                         <!-- start: TOP NAVIGATION MENU -->
                         <ul class="nav navbar-right">
                             <!-- start: TO-DO DROPDOWN -->
-                            <li class="menu-search">
-                                <a href="" onclick="saveContent();">
-                                    <i class="fa fa-floppy-o 2x"></i> SAVE
-                                </a>
-                            </li>
                         </ul>
                         <!-- end: TOP NAVIGATION MENU -->
                     </div>
@@ -33,11 +28,11 @@
                     <ol class="breadcrumb">
                         <li>
                             <a href="#">
-                                Dashboard
+                                Admin
                             </a>
                         </li>
                         <li class="active">
-                            Dashboard
+                            Service Setting
                         </li>
                     </ol>
                 </div>
@@ -51,7 +46,7 @@
                     <div class="panel panel-white">
                         <div class="panel-heading">
                             <div class="panel-tools">
-                                <a href="#responsive" data-toggle="modal" class="demo btn btn-blue" onclick="tinymcestart()">
+                                <a href="#responsive" data-toggle="modal" class="demo btn btn-blue" onclick="tinymcestartnew()">
                                     Add
                                 </a>
                             </div>
@@ -172,7 +167,7 @@
                                     </a>
                                 </div>
                             </div>
-                            <textarea name="content" rows=16 id="template_contents" class="form-control tinymce">ASD</textarea>
+                            <textarea name="content" rows=16 id="template_contents" class="form-control tinymce"></textarea>
                             </form>
                         </div>
                     </div>
@@ -350,5 +345,13 @@
            {{--$(".modal-body #serviceimg").attr('img',"{{$serviceslide[key]->thumbnail}}");--}}
            {{--$(".modal-body .servicecontent").val({{$serviceslide[key]->content}});--}}
        }
+
+        function tinymcestartnew() {
+            tinymce.remove();
+            tinymcestart();
+        }
+        $('#responsive').on('hidden.bs.modal', function () {
+            location.reload();
+        });
     </script>
 @endsection

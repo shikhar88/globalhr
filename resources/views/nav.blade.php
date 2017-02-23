@@ -31,16 +31,16 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Study Abroad <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a onclick="study('study/usa')">USA</a>
+                            <a style="cursor: pointer;" onclick="study('study/usa')">{{($detail->titlefirst)?$detail->titlefirst:''}}</a>
                         </li>
                         <li>
-                            <a onclick="study('study/australia')">Australia</a>
+                            <a style="cursor: pointer;" onclick="study('study/australia')">{{($detail->titlesecond)?$detail->titlesecond:''}}</a>
                         </li>
                         <li>
-                            <a onclick="study('study/newzealand')">New Zealand</a>
+                            <a style="cursor: pointer;" onclick="study('study/newzealand')">{{($detail->titlethird)?$detail->titlethird:''}}</a>
                         </li>
                         <li>
-                            <a onclick="study('study/europe')">Europe</a>
+                            <a style="cursor: pointer;" onclick="study('study/europe')">{{($detail->titlefourth)?$detail->titlefourth:''}}</a>
                         </li>
 
                     </ul>
