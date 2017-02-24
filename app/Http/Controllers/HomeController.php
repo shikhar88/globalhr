@@ -5,6 +5,7 @@ use App\Content;
 use App\Images;
 use App\Services;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 
 class HomeController extends Controller
 {
@@ -119,4 +120,12 @@ class HomeController extends Controller
         $content = Content::where('type',$country)->get()->first();
         return view('study')->with('name',$name)->with('content',$content->value);
    }
+
+    public function modalhelp(){
+        if(Input::get('action',null)=='1'){
+            $id = Input::get('id');
+            $data = Services::where('id',$id)->select('value')->get()->first();
+            return $data->value;
+        }
+    }
 }

@@ -672,7 +672,7 @@
     jssor_1_slider_init();
     function showhelpmodal(id) {
         $.ajax({
-            url:'/admin/help',
+            url:'/modalhelp',
             data:{'id':id,'action':'1'},
             method:'get',
             dataType:'json',
